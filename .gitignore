@@ -8,3 +8,5 @@
 /netMarket/WebApi/appsettings.json
 /netMarket/Core/bin/Debug/net5.0
 /netMarket/BusinessLogic/obj
+/netMarket/BusinessLogic/bin/Debug/net5.0
+/netMarket/WebApi/bin/Debug/net5.0
