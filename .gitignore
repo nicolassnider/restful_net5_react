@@ -6,3 +6,4 @@
 /netMarket/Core/obj
 /netMarket/WebApi/obj
 /netMarket/WebApi/appsettings.json
+/netMarket/Core/bin/Debug/net5.0
