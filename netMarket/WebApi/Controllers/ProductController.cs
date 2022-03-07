@@ -1,0 +1,45 @@
+﻿using AutoMapper;
+using Core.Entities;
+using Core.Especifications;
+using Core.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebApi.Dtos;
+using WebApi.Errors;
+
+namespace WebApi.Controllers
+{
+    public class ProductController : BaseApiController { 
+        private readonly IGenericRepository<Product> _productRepository;
+        private readonly IMapper _mapper;
+
+        public ProductController(IGenericRepository<Product> productRepository,IMapper mapper)
+        {
+            _mapper=mapper;
+            _productRepository = productRepository;
+        }
+        [HttpGet]
+        public async Task<ActionResult<List<Product>>> GetProducts([FromQuery]ProductSpecificationParam productParams)
+        {
+            var spec = new ProductWithCategoryAndBrandSpecification(productParams);
+            var products = await _productRepository.GetAllWithSpec(spec);
+            return Ok(_mapper.Map<IReadOnlyList<Product>,IReadOnlyList<ProductDto>>(products));
+        }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
+        {
+            //devuelve un solo resultado
+            //spec= logica de la condicion de consulta y relación entre entidades. (producto y marca/categoría)
+            var spec = new ProductWithCategoryAndBrandSpecification(id);
+            var product = await _productRepository.GetByIdWithSpec(spec);
+            if (product == null)
+            {
+                //return NotFound(new CodeErrorResponse(404));
+                return NotFound(new CodeErrorResponse(404,"Product does not exist"));
+            }
+            return _mapper.Map<Product, ProductDto>(product);
+        }
+
+    }
+}
