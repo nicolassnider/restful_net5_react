@@ -10,3 +10,5 @@
 /netMarket/BusinessLogic/obj
 /netMarket/BusinessLogic/bin/Debug/net5.0
 /netMarket/WebApi/bin/Debug/net5.0
+net-market-fe/node_modules
+net-market-fe/.gitignore
