@@ -17,8 +17,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "../../theme/useStyles";
+import {
+  addProduct,
+  deleteProduct,
+  editProduct,
+  getProductKey,
+  listProducts,
+} from "../data/Products";
 
 const clearProduct = {
   name: "",
@@ -51,20 +58,44 @@ const Product = () => {
     }));
   };
   const saveData = () => {
-    console.log(product);
+    addProduct(product);
     setProduct(clearProduct);
   };
 
-  const openDialog = () => {
-    setOpen(true);
-    console.log("edit");
+  const [productsArray, setProductsArray] = useState([]);
+
+  const listDataProducts = () => {
+    const data = listProducts();
+    setProductsArray(data);
   };
 
-  const deleteData = () => {
-    console.log("delete");
+  useEffect(() => {
+    listDataProducts();
+  }, [productsArray.length]);
+
+  const openDialog = (key) => {
+    setOpen(true);
+    const dataProduct = getProductKey(key);
+    setProductEdit({
+      key: key,
+      nameEdit: dataProduct.name,
+      stockEdit: dataProduct.stock,
+      brandIdEdit: dataProduct.brandId,
+      //brand: {},
+      categoryIdEdit: dataProduct.categoryId,
+      //category: {},
+      priceEdit: dataProduct.price,
+      imageEdit: dataProduct.image,
+    });
+  };
+
+  const deleteData = (data) => {
+    const listNewProducts = deleteProduct(data);
+    setProductsArray(listNewProducts);
   };
 
   const [productEdit, setProductEdit] = useState({
+    key: 0,
     nameEdit: "",
     stockEdit: "",
     brandIdEdit: "",
@@ -91,6 +122,7 @@ const Product = () => {
 
   const editData = () => {
     console.log(productEdit);
+    const newData = editProduct(productEdit);
     closeDialog();
   };
 
@@ -215,34 +247,36 @@ const Product = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>Prod 1 </TableCell>
-              <TableCell>120 </TableCell>
-              <TableCell>1 </TableCell>
-              <TableCell>Brand 1 </TableCell>
-              <TableCell>2 </TableCell>
-              <TableCell>Category 2</TableCell>
-              <TableCell>$1237 </TableCell>
-              <TableCell>Image </TableCell>
-              <TableCell>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={openDialog}
-                >
-                  Edit
-                </Button>
-              </TableCell>
-              <TableCell>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={deleteData}
-                >
-                  Delete
-                </Button>
-              </TableCell>
-            </TableRow>
+            {productsArray.map((productObj) => (
+              <TableRow key={productObj.key}>
+                <TableCell>{productObj.name}</TableCell>
+                <TableCell>{productObj.stock}</TableCell>
+                <TableCell>{productObj.brandId}</TableCell>
+                <TableCell>{productObj.brand}</TableCell>
+                <TableCell>{productObj.categoryId}</TableCell>
+                <TableCell>{productObj.category}</TableCell>
+                <TableCell>${productObj.price}</TableCell>
+                <TableCell>{productObj.image}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => openDialog(productObj.key)}
+                  >
+                    Edit
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => deleteData(productObj)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
