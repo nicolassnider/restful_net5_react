@@ -39,7 +39,7 @@ const useStyles = makeStyles({
   grow: {
     flexGrow: 0,
     [theme.breakpoints.up("md")]: {
-      display: 1,
+      flexGrow: 1,
     },
   },
   linkAppBarLogo: {
@@ -92,6 +92,86 @@ const useStyles = makeStyles({
       display: "none",
     },
   },
+  text_title: {
+    fontWeight: 600,
+    color: "#494949",
+    marginBottom: 10,
+  },
+  media: {
+    height: 250,
+    backgroundColor: "#F2F2F2",
+    margin: "15px 15px 0 15px",
+  },
+  price: {
+    float: "right",
+    padding: "0 20px 0 20px",
+    backgroundColor: "#0f80aa",
+  },
+  text_card: {
+    fontWeight: "bold",
+    color: "#656565",
+    marginBottom: 8,
+  },
+  paper_img: {
+    backgroundColor: "#F2F2F2",
+  },
+  media_detail: {
+    width: 380,
+    height: 380,
+    margin: "auto",
+  },
+  text_detail: {
+    fontWeight: 500,
+    color: "#494949",
+    marginBottom: 5,
+  },
+  img_product_cc: {
+    backgroundColor: "#F2F2F2",
+    width: 80,
+    height: 70,
+  },
+  paper_padding: {
+    padding: 20,
+  },
+  grid_pc:{
+    margin:"auto",
+    marginTop:20
+  },
+  button_back:{
+    marginRight:8
+  },
+  form_control:{
+    margin:12
+  },
+  grid_lr:{
+    paddingLeft:30,
+    paddingBottom:20,
+    paddingRight:30
+  },
+  divider:{
+    marginTop:12,
+    marginBottom:12
+  },
+  img_product_pc:{
+    backgroundColor:"#F2F2F2",
+    width:50,
+    height:40
+  },
+  text_shipping:{
+    lineHeight:3
+  },
+  alert_not_delivered:{
+    margin:5,
+    padding:"15px 15px 5px 15px",
+    marginBottom:20,
+    backgroundColor:"#FFCCCC"
+  },
+  alert_delivered:{
+    margin:5,
+    padding:"15px 15px 5px 15px",
+    marginBottom:20,
+    backgroundColor:"#D6F5D6"
+  }    
 });
 
 export default useStyles;

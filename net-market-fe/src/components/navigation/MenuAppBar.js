@@ -22,13 +22,14 @@ import { Link } from "react-router-dom";
 const MenuAppBar = () => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
-
   const openToggle = () => {
     setOpen(true);
   };
+
   const closeToggle = () => {
     setOpen(false);
   };
+
   return (
     <div>
       <AppBar position="static" className={classes.appBar}>
@@ -42,7 +43,7 @@ const MenuAppBar = () => {
               </IconButton>
             </div>
             <Drawer open={open} onClose={closeToggle}>
-              <div className={classes.list}>
+              <div className={classes.list} onClick={closeToggle}>
                 <List>
                   <ListItem
                     button
@@ -68,12 +69,12 @@ const MenuAppBar = () => {
             </Drawer>
             <div className={classes.grow}>
               <Link
+                className={classes.linkAppBarLogo}
                 to="/"
                 color="inherit"
-                className={classes.linkAppBarLogo}
                 underline="none"
               >
-                <Icon className={classes.mr} fontSize="large">
+                <Icon fontSize="large" className={classes.mr}>
                   <StoreIcon
                     className={classes.mr}
                     fontSize="large"
@@ -85,13 +86,16 @@ const MenuAppBar = () => {
             <div className={classes.sectionDesktop}>
               <Button color="inherit" className={classes.buttonIcon}>
                 <Link
+                  className={classes.linkAppBarDesktop}
                   to="/login"
                   color="inherit"
-                  className={classes.linkAppBarDesktop}
                   underline="none"
                 >
                   <Icon className={classes.mr} fontSize="small">
-                    <PersonIcon className={classes.mr}></PersonIcon>
+                    <PersonIcon
+                      className={classes.mr}
+                      fontSize="small"
+                    ></PersonIcon>
                   </Icon>
                   LOGIN
                 </Link>
