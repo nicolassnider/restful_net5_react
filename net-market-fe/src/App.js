@@ -9,6 +9,8 @@ import ProductDetail from "./components/views/ProductDetail";
 import ShoppingCart from "./components/views/ShoppingCart";
 import PurchaseProcess from "./components/views/PurchaseProcess";
 import PurchaseOrder from "./components/views/PurchaseOrder";
+import Profile from "./components/security/Profile";
+import Users from "./components/views/admin/Users";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/purchaseProcess" component={PurchaseProcess} />
           <Route exact path="/purchaseOrder/:id" component={PurchaseOrder} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/admin/users" component={Users} />
         </Switch>
       </Router>
     </ThemeProvider>

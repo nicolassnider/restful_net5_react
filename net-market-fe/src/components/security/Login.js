@@ -5,7 +5,7 @@ import {
   Container,
   Grid,
   TextField,
-  Typography  
+  Typography,
 } from "@mui/material";
 import React from "react";
 import Icon from "@mui/material/Icon";
@@ -21,9 +21,7 @@ const Login = () => {
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
             <Avatar className={classes.avatar}>
-              <Icon className={classes.icon}>
-                <PersonIcon></PersonIcon>
-              </Icon>
+              <PersonIcon className={classes.icon}></PersonIcon>
             </Avatar>
             <Typography variant="h5" color="primary">
               Login

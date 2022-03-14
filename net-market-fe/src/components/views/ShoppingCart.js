@@ -4,7 +4,6 @@ import {
   Container,
   Divider,
   Grid,
-  Icon,
   MenuItem,
   Paper,
   Table,
@@ -22,7 +21,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 const ShoppingCart = (props) => {
   const productArray = TestProductArray;
-  const processPurchase = () =>{props.history.push("/purchaseProcess")}
+  const processPurchase = () => {
+    props.history.push("/purchaseProcess");
+  };
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
@@ -63,9 +64,7 @@ const ShoppingCart = (props) => {
                       </TextField>
                     </TableCell>
                     <TableCell>
-                      <Icon>
-                        <DeleteIcon></DeleteIcon>
-                      </Icon>
+                      <DeleteIcon></DeleteIcon>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -80,7 +79,12 @@ const ShoppingCart = (props) => {
             </Typography>
             <Typography className={classes.text_title}>$ 456456.60</Typography>
             <Divider className={classes.gridmb} />
-            <Button variant="contained" color="primary" size="large" onClick={processPurchase}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              onClick={processPurchase}
+            >
               Buy
             </Button>
           </Paper>

@@ -55,7 +55,7 @@ const useStyles = makeStyles({
     fontSize: 14,
     padding: 0,
   },
-  linkAppBarDesktop: {
+  link_app_bar_desktop: {
     display: "inline-flex",
     alignItems: "center",
     padding: "6px 16px",
@@ -65,10 +65,10 @@ const useStyles = makeStyles({
   list: {
     width: 250,
   },
-  listItem: {
+  list_item: {
     padding: 0,
   },
-  linkAppBarMobile: {
+  link_app_bar_mobile: {
     display: "inline-flex",
     alignItems: "center",
     width: "100%",
@@ -76,7 +76,7 @@ const useStyles = makeStyles({
     color: "inherit",
     textDecoration: "none",
   },
-  listItemIcon: {
+  list_item_icon: {
     minWidth: 35,
   },
   sectionDesktop: {
@@ -171,7 +171,35 @@ const useStyles = makeStyles({
     padding:"15px 15px 5px 15px",
     marginBottom:20,
     backgroundColor:"#D6F5D6"
-  }    
+  },
+  image_uploader:{
+    padding:0,
+    margin:"-25px auto 15px",
+    width:0
+  },
+  avatar_profile:{
+    width:130,
+    height:130,
+    backgroundColor:"#0f80aa"
+  },
+  table:{
+    border:"1px solid #e0e0e0"
+  },
+  icon_delivered:{
+    color:"green",
+    fontWeight:900
+  },
+  icon_not_delivered:{
+    color:"red",
+    fontWeight:900
+  },
+  avatar_profile_app_bar:{
+    marginRight:8,
+    backgroundColor:"#f2f2f2"
+  },
+  list_sub_item:{
+    padding:"0 0 0 30px"
+  }
 });
 
 export default useStyles;

@@ -1,23 +1,20 @@
 import {
   AppBar,
-  Button,
   Container,
   Drawer,
-  Icon,
   IconButton,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
 import StoreIcon from "@mui/icons-material/Store";
-import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import useStyles from "../../theme/useStyles";
 import { Link } from "react-router-dom";
+import ClientMenu from "./desktop/ClientMenu";
+import AdminMenu from "./desktop/AdminMenu";
+import MenuMobile from "./mobile/MenuMobile";
 
 const MenuAppBar = () => {
   const [open, setOpen] = useState(false);
@@ -37,33 +34,29 @@ const MenuAppBar = () => {
           <Toolbar>
             <div className={classes.sectionMobile}>
               <IconButton color="inherit" onClick={openToggle}>
-                <Icon fontSize="large">
-                  <MenuIcon></MenuIcon>
-                </Icon>
+                <MenuIcon fontSize="large"></MenuIcon>
               </IconButton>
             </div>
             <Drawer open={open} onClose={closeToggle}>
-              <div className={classes.list} onClick={closeToggle}>
+              <div className={classes.list}>
                 <List>
-                  <ListItem
+                  {/*<ListItem
                     button
                     onClick={closeToggle}
-                    className={classes.listItem}
+                    className={classes.list_item}
                   >
                     <Link
                       to="/login"
                       color="inherit"
-                      className={classes.linkAppBarMobile}
+                      className={classes.link_app_bar_mobile}
                       underline="none"
                     >
-                      <ListItemIcon className={classes.listItemIcon}>
-                        <Icon>
-                          <PersonIcon></PersonIcon>
-                        </Icon>
+                      <ListItemIcon className={classes.list_item_icon}>
+                        <PersonIcon></PersonIcon>
                       </ListItemIcon>
                       <ListItemText>Login</ListItemText>
-                    </Link>
-                  </ListItem>
+                    </Link></ListItem>*/}
+                    <MenuMobile clickHandler={closeToggle}/>
                 </List>
               </div>
             </Drawer>
@@ -74,19 +67,14 @@ const MenuAppBar = () => {
                 color="inherit"
                 underline="none"
               >
-                <Icon fontSize="large" className={classes.mr}>
-                  <StoreIcon
-                    className={classes.mr}
-                    fontSize="large"
-                  ></StoreIcon>
-                </Icon>
+                <StoreIcon className={classes.mr} fontSize="large"></StoreIcon>
                 <Typography variant="h5">SHOP</Typography>
               </Link>
             </div>
             <div className={classes.sectionDesktop}>
-              <Button color="inherit" className={classes.buttonIcon}>
+              {/*<Button color="inherit" className={classes.buttonIcon}>
                 <Link
-                  className={classes.linkAppBarDesktop}
+                  className={classes.link_app_bar_desktop}
                   to="/login"
                   color="inherit"
                   underline="none"
@@ -98,8 +86,9 @@ const MenuAppBar = () => {
                     ></PersonIcon>
                   </Icon>
                   LOGIN
-                </Link>
-              </Button>
+                </Link></Button>*/}
+              <ClientMenu />
+              <AdminMenu />
             </div>
           </Toolbar>
         </Container>

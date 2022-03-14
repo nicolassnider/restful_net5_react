@@ -4,7 +4,6 @@ import {
   Card,
   Container,
   Grid,
-  Icon,
   TextField,
   Typography,
 } from "@mui/material";
@@ -38,7 +37,7 @@ const RegisterUser = () => {
 
   const saveUser = () => {
     console.log(user);
-    setUser(clearUser)
+    setUser(clearUser);
   };
   const classes = useStyles();
   return (
@@ -47,9 +46,7 @@ const RegisterUser = () => {
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
             <Avatar className={classes.avatar}>
-              <Icon className={classes.icon}>
-                <PersonIcon className={classes.icon}></PersonIcon>
-              </Icon>
+              <PersonIcon className={classes.icon}></PersonIcon>
             </Avatar>
             <Typography variant="h5" color="primary">
               Register user
