@@ -34,7 +34,7 @@ const MenuAppBar = () => {
           <Toolbar>
             <div className={classes.sectionMobile}>
               <IconButton color="inherit" onClick={openToggle}>
-                <MenuIcon fontSize="large"></MenuIcon>
+                <MenuIcon fontSize="large"/>
               </IconButton>
             </div>
             <Drawer open={open} onClose={closeToggle}>
@@ -43,15 +43,15 @@ const MenuAppBar = () => {
                   {/*<ListItem
                     button
                     onClick={closeToggle}
-                    className={classes.list_item}
+                    className={classes.listItem}
                   >
                     <Link
                       to="/login"
                       color="inherit"
-                      className={classes.link_app_bar_mobile}
+                      className={classes.linkAppBarMobile}
                       underline="none"
                     >
-                      <ListItemIcon className={classes.list_item_icon}>
+                      <ListItemIcon className={classes.listItemIcon}>
                         <PersonIcon></PersonIcon>
                       </ListItemIcon>
                       <ListItemText>Login</ListItemText>
@@ -67,14 +67,14 @@ const MenuAppBar = () => {
                 color="inherit"
                 underline="none"
               >
-                <StoreIcon className={classes.mr} fontSize="large"></StoreIcon>
+                <StoreIcon className={classes.mr} fontSize="large"/>
                 <Typography variant="h5">SHOP</Typography>
               </Link>
             </div>
             <div className={classes.sectionDesktop}>
               {/*<Button color="inherit" className={classes.buttonIcon}>
                 <Link
-                  className={classes.link_app_bar_desktop}
+                  className={classes.linkAppBarDesktop}
                   to="/login"
                   color="inherit"
                   underline="none"

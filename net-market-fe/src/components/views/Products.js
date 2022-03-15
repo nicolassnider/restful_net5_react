@@ -20,7 +20,7 @@ const Products = (props) => {
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
-      <Typography variant="h4" className={classes.text_title}>
+      <Typography variant="h4" className={classes.textTitle}>
         Products
       </Typography>
       <Grid container spacing={4}>
@@ -37,7 +37,7 @@ const Products = (props) => {
                 </Avatar>
               </CardMedia>
               <CardContent>
-                <Typography variant="h6" className={classes.text_card}>
+                <Typography variant="h6" className={classes.textCard}>
                   {data.name}
                 </Typography>
                 <Button variant="contained" color="primary" fullWidth onClick={()=> openProduct(data.key)}>

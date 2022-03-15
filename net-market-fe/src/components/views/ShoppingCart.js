@@ -27,7 +27,7 @@ const ShoppingCart = (props) => {
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
-      <Typography variant="h4" className={classes.text_title}>
+      <Typography variant="h4" className={classes.textTitle}>
         Shopping cart
       </Typography>
       <Grid container spacing={2}>
@@ -39,18 +39,18 @@ const ShoppingCart = (props) => {
                   <TableRow key={product.key}>
                     <TableCell>
                       <CardMedia
-                        className={classes.img_product_cc}
+                        className={classes.imgProductCC}
                         image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
                         title="product"
                       ></CardMedia>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_detail}>
+                      <Typography className={classes.textDetail}>
                         {product.name}
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_detail}>
+                      <Typography className={classes.textDetail}>
                         {product.price}
                       </Typography>
                     </TableCell>
@@ -64,7 +64,7 @@ const ShoppingCart = (props) => {
                       </TextField>
                     </TableCell>
                     <TableCell>
-                      <DeleteIcon></DeleteIcon>
+                      <DeleteIcon/>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -73,11 +73,11 @@ const ShoppingCart = (props) => {
           </TableContainer>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Paper variant="outlined" square className={classes.paper_padding}>
-            <Typography variant="h6" className={classes.text_title}>
+          <Paper variant="outlined" square className={classes.paperPadding}>
+            <Typography variant="h6" className={classes.textTitle}>
               Subtotal ({productArray.length}) Products
             </Typography>
-            <Typography className={classes.text_title}>$ 456456.60</Typography>
+            <Typography className={classes.textTitle}>$ 456456.60</Typography>
             <Divider className={classes.gridmb} />
             <Button
               variant="contained"

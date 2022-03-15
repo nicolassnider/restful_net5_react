@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import Icon from "@mui/material/Icon";
 import PersonIcon from "@mui/icons-material/Person";
 import useStyles from "../../theme/useStyles";
 import { Link } from "react-router-dom";
@@ -17,11 +16,11 @@ const Login = () => {
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
             <Avatar className={classes.avatar}>
-              <PersonIcon className={classes.icon}></PersonIcon>
+              <PersonIcon className={classes.icon}/>
             </Avatar>
             <Typography variant="h5" color="primary">
               Login

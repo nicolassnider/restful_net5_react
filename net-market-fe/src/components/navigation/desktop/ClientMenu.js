@@ -27,8 +27,8 @@ const ClientMenu = () => {
   return (
     <>
       <Button color="inherit" className={classes.button_icon}>
-        <Link className={classes.link_app_bar_desktop} to="/shoppingCart">
-          <ShoppingCartIcon className={classes.mr}></ShoppingCartIcon>
+        <Link className={classes.linkAppBarDesktop} to="/shoppingCart">
+          <ShoppingCartIcon className={classes.mr}/>
           My Orders
         </Link>
       </Button>
@@ -38,38 +38,43 @@ const ClientMenu = () => {
           className={classes.button_icon}
           onClick={handleClick}
         >
-          <div className={classes.link_app_bar_desktop}>
+          <div className={classes.linkAppBarDesktop}>
             <Avatar
               alt="image"
-              className={classes.avatar_profile_app_bar}
+              className={classes.avatarProfileAppBar}
               src="https://png.pngtree.com/png-clipart/20220109/original/pngtree-awesome-gamer-illustration-for-t-shirt-design-png-image_7021992.png"
             />
             Juan Perez
-            <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+            <KeyboardArrowDownIcon/>
           </div>
         </Button>
         <Menu
-          elevation={2}
-          anchorEl={anchorEl}
-          getContentAnchorEl={null}
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-          transformOrigin={{ vertical: "top", horizontal: "center" }}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem className={classes.list_item} onClick={handleClose}>
-            <Link className={classes.link_app_bar_mobile} to="/profile">
-              <ListItemIcon className={classes.list_item_icon}>
-                <PersonIcon></PersonIcon>
+                elevation={2}
+                anchorEl={anchorEl}
+                getcontentanchorel={null}
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center"
+                }}
+                transformOrigin={{
+                    vertical: "top",
+                    horizontal: "center"
+                }}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}>
+          <MenuItem className={classes.listItem} onClick={handleClose}>
+            <Link className={classes.linkAppBarMobile} to="/profile">
+              <ListItemIcon className={classes.listItemIcon}>
+                <PersonIcon/>
               </ListItemIcon>
               <ListItemText>My Profile</ListItemText>
             </Link>
           </MenuItem>
-          <MenuItem className={classes.list_item} onClick={handleClose}>
-            <Link className={classes.link_app_bar_mobile} to="/profile">
-              <ListItemIcon className={classes.list_item_icon}>
-                <ExitToAppIcon></ExitToAppIcon>
+          <MenuItem className={classes.listItem} onClick={handleClose}>
+            <Link className={classes.linkAppBarMobile} to="/profile">
+              <ListItemIcon className={classes.listItemIcon}>
+                <ExitToAppIcon/>
               </ListItemIcon>
               <ListItemText>Close Session</ListItemText>
             </Link>

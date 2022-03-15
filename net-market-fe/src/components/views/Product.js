@@ -129,7 +129,7 @@ const Product = () => {
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
             <Typography variant="h4">Products</Typography>

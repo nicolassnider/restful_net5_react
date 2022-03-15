@@ -10,7 +10,10 @@ import ShoppingCart from "./components/views/ShoppingCart";
 import PurchaseProcess from "./components/views/PurchaseProcess";
 import PurchaseOrder from "./components/views/PurchaseOrder";
 import Profile from "./components/security/Profile";
-import Users from "./components/views/admin/Users";
+import EditUser from "./components/views/admin/EditUser";
+import UsersList from "./components/views/admin/UsersList";
+import ProducstList from "./components/views/admin/ProducstList";
+import AddProduct from "./components/views/admin/AddProduct";
 
 function App() {
   return (
@@ -26,7 +29,10 @@ function App() {
           <Route exact path="/purchaseProcess" component={PurchaseProcess} />
           <Route exact path="/purchaseOrder/:id" component={PurchaseOrder} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/admin/users" component={Users} />
+          <Route exact path="/admin/users" component={UsersList} />
+          <Route exact path="/admin/users/:id" component={EditUser} />
+          <Route exact path="/admin/products" component={ProducstList} />
+          <Route exact path="/admin/addProduct" component={AddProduct} />
         </Switch>
       </Router>
     </ThemeProvider>

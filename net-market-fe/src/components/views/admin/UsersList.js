@@ -16,11 +16,15 @@ import ClearIcon from "@mui/icons-material/Clear";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const Users = () => {
+const UsersList = (props) => {
   const classes = useStyles();
+  const editUser = () => {
+    const id = "108f11f9-b5f6-46fb-b5cc-795f82f0536d";
+    props.history.push("/admin/users/" + id);
+  };
   return (
     <Container className={classes.containermt}>
-      <Typography variant="h4" className={classes.text_title}>
+      <Typography variant="h4" className={classes.textTitle}>
         Users
       </Typography>
       <TableContainer>
@@ -40,14 +44,14 @@ const Users = () => {
               <TableCell>Juan Perez</TableCell>
               <TableCell>Juan.perez@gmail.com</TableCell>
               <TableCell>
-                <CheckIcon className={classes.icon_delivered}></CheckIcon>                
+                <CheckIcon className={classes.iconDelivered}/>
               </TableCell>
               <TableCell>
-                <Button variant="contained" color="primary">
-                  <EditIcon></EditIcon>
+                <Button variant="contained" color="primary" onClick={editUser}>
+                  <EditIcon/>
                 </Button>
                 <Button variant="contained" color="secondary">
-                  <DeleteIcon></DeleteIcon>
+                  <DeleteIcon/>
                 </Button>
               </TableCell>
             </TableRow>
@@ -56,14 +60,14 @@ const Users = () => {
               <TableCell>Juan Perez2</TableCell>
               <TableCell>Juan.perez2@gmail.com</TableCell>
               <TableCell>
-                <ClearIcon className={classes.icon_not_delivered}></ClearIcon>
+                <ClearIcon className={classes.iconNotDelivered}/>
               </TableCell>
               <TableCell>
-                <Button variant="contained" color="primary">
-                  <EditIcon></EditIcon>
+                <Button variant="contained" color="primary" onClick={editUser}>
+                  <EditIcon/>
                 </Button>
                 <Button variant="contained" color="secondary">
-                  <DeleteIcon></DeleteIcon>
+                  <DeleteIcon/>
                 </Button>
               </TableCell>
             </TableRow>
@@ -74,4 +78,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default UsersList;

@@ -31,7 +31,7 @@ const Profile = (props) => {
     <Container className={classes.containermt}>
       <Grid container spacing={2}>
         <Grid item md={3} cs={12}>
-          <Typography variant="h5" className={classes.text_title}>
+          <Typography variant="h5" className={classes.textTitle}>
             User´s profile
           </Typography>
           <form onSubmit={(e) => e.preventDefault()} className={classes.form}>
@@ -45,10 +45,10 @@ const Profile = (props) => {
                 bottom: 15,
                 left: 15,
               }}
-              className={classes.image_uploader}
-              buttonText={<AddAPhotoIcon></AddAPhotoIcon>}
+              className={classes.imageUploader}
+              buttonText={<AddAPhotoIcon />}
               label={
-                <Avatar alt="profile" className={classes.avatar_profile} />
+                <Avatar alt="profile" className={classes.avatarProfile} />
               }
               src="https://png.pngtree.com/png-clipart/20220109/original/pngtree-awesome-gamer-illustration-for-t-shirt-design-png-image_7021992.png"
               imgExtension={[".jpg", ".gif", ".png", ".jpeg"]}
@@ -60,21 +60,21 @@ const Profile = (props) => {
               fullWidth
               className={classes.gridmb}
               value="juan"
-            ></TextField>
+            />
             <TextField
               label="Last Name"
               variant="outlined"
               fullWidth
               className={classes.gridmb}
               value="perez"
-            ></TextField>
+            />
             <TextField
               label="Email"
               variant="outlined"
               fullWidth
               className={classes.gridmb}
               value="juan.perez@gmail.com"
-            ></TextField>
+            />
             <Divider />
             <TextField
               label="Password"
@@ -82,21 +82,21 @@ const Profile = (props) => {
               fullWidth
               className={classes.gridmb}
               value="juan.perez@gmail.com"
-            ></TextField>
+            />
             <TextField
               label="Confirm Password"
               variant="outlined"
               fullWidth
               className={classes.gridmb}
               value="juan.perez@gmail.com"
-            ></TextField>
+            />
             <Button variant="contained" color="primary">
               Save
             </Button>
           </form>
         </Grid>
         <Grid item md={9} cs={12}>
-          <Typography variant="h5" className={classes.text_title}>
+          <Typography variant="h5" className={classes.textTitle}>
             My Purchases
           </Typography>
           <TableContainer className={classes.form}>
@@ -118,11 +118,9 @@ const Profile = (props) => {
                   <TableCell>$60</TableCell>
                   <TableCell>2020-12-15</TableCell>
                   <TableCell>
-                    <CheckIcon className={classes.icon_delivered}></CheckIcon>
+                    <CheckIcon className={classes.iconDelivered} />
 
-                    <ClearIcon
-                      className={classes.icon_not_delivered}
-                    ></ClearIcon>
+                    <ClearIcon className={classes.iconNotDelivered} />
                   </TableCell>
                   <TableCell>
                     <Button variant="contained" onClick={openDetails}>

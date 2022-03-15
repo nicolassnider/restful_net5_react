@@ -23,14 +23,14 @@ const ProductDetail = (props) => {
   const classes = useStyles();
   return (
     <Container className={classes.containermt}>
-      <Typography variant="h4" className={classes.text_title}>
+      <Typography variant="h4" className={classes.textTitle}>
         Bomber Jacket Casu SD
       </Typography>
       <Grid container spacing={4}>
         <Grid item lg={8} md={8} xs={12}>
-          <Paper className={classes.paper_img} variant="outlined" square>
+          <Paper className={classes.paperImg} variant="outlined" square>
             <CardMedia
-              className={classes.media_detail}
+              className={classes.mediaDetail}
               image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
               title="product"
             />
@@ -74,24 +74,24 @@ const ProductDetail = (props) => {
         <Grid item lg={8} md={8} xs={12}>
           <Grid container spacing={2}>
             <Grid item md={6}>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
                 Price: $25.99
               </Typography>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
                 Stock: 150
               </Typography>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
                 Brand: Brand 1
               </Typography>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
                 Category: Category 1
               </Typography>
             </Grid>
             <Grid item md={6}>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
                 Description: 
               </Typography>
-              <Typography className={classes.text_detail}>
+              <Typography className={classes.textDetail}>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque ad nisi ducimus quidem et maiores labore magnam necessitatibus harum hic temporibus, modi eius quisquam atque doloribus dolorum? Quam, ipsam expedita?
               </Typography>
             </Grid>

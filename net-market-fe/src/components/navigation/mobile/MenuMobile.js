@@ -37,40 +37,40 @@ const MenuMobile = (props) => {
       <ListItem
         button
         onClick={handleClickClient}
-        className={classes.list_item}
+        className={classes.listItem}
       >
-        <div className={classes.link_app_bar_mobile}>
+        <div className={classes.linkAppBarMobile}>
           <Avatar
             alt="image"
-            className={classes.avatar_profile_app_bar}
+            className={classes.avatarProfileAppBar}
             src="https://png.pngtree.com/png-clipart/20220109/original/pngtree-awesome-gamer-illustration-for-t-shirt-design-png-image_7021992.png"
           />
           <ListItemText>Juan Perez</ListItemText>
-          <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+          <KeyboardArrowDownIcon/>
         </div>
       </ListItem>
       <Collapse component="li" in={openClient} timeout="auto" unmountOnExit>
         <List disablePadding>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/profile">
-              <ListItemIcon className={classes.list_item_icon}>
-                <PersonIcon></PersonIcon>
+            <Link className={classes.linkAppBarMobile} to="/profile">
+              <ListItemIcon className={classes.listItemIcon}>
+                <PersonIcon/>
               </ListItemIcon>
               <ListItemText>My Profile</ListItemText>
             </Link>
           </ListItem>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/">
-              <ListItemIcon className={classes.list_item_icon}>
-                <ExitToAppIcon></ExitToAppIcon>
+            <Link className={classes.linkAppBarMobile} to="/">
+              <ListItemIcon className={classes.listItemIcon}>
+                <ExitToAppIcon/>
               </ListItemIcon>
               <ListItemText>Close Session</ListItemText>
             </Link>
@@ -79,61 +79,61 @@ const MenuMobile = (props) => {
         </List>
       </Collapse>
       {/*Admin*/}
-      <ListItem button onClick={handleClickAdmin} className={classes.list_item}>
-        <div className={classes.link_app_bar_mobile}>
-          <ListItemIcon className={classes.list_item_icon}>
-            <AdminIcon></AdminIcon>
+      <ListItem button onClick={handleClickAdmin} className={classes.listItem}>
+        <div className={classes.linkAppBarMobile}>
+          <ListItemIcon className={classes.listItemIcon}>
+            <AdminIcon/>
           </ListItemIcon>
           <ListItemText>Admin</ListItemText>
-          <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+          <KeyboardArrowDownIcon/>
         </div>
       </ListItem>
       <Collapse component="li" in={openAdmin} timeout="auto" unmountOnExit>
         <List disablePadding>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/admin/users">
-              <ListItemIcon className={classes.list_item_icon}>
-                <GroupIcon></GroupIcon>
+            <Link className={classes.linkAppBarMobile} to="/admin/users">
+              <ListItemIcon className={classes.listItemIcon}>
+                <GroupIcon/>
               </ListItemIcon>
               <ListItemText>Users</ListItemText>
             </Link>
           </ListItem>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/">
-              <ListItemIcon className={classes.list_item_icon}>
-                <StorefrontIcon></StorefrontIcon>
+            <Link className={classes.linkAppBarMobile} to="/admin/products">
+              <ListItemIcon className={classes.listItemIcon}>
+                <StorefrontIcon/>
               </ListItemIcon>
               <ListItemText>Products</ListItemText>
             </Link>
           </ListItem>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/">
-              <ListItemIcon className={classes.list_item_icon}>
-                <ShoppingCartIcon></ShoppingCartIcon>
+            <Link className={classes.linkAppBarMobile} to="/">
+              <ListItemIcon className={classes.listItemIcon}>
+                <ShoppingCartIcon/>
               </ListItemIcon>
               <ListItemText>Orders</ListItemText>
             </Link>
           </ListItem>
           <ListItem
             button
-            className={classes.list_sub_item}
+            className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.link_app_bar_mobile} to="/">
-              <ListItemIcon className={classes.list_item_icon}>
-                <ExitToAppIcon></ExitToAppIcon>
+            <Link className={classes.linkAppBarMobile} to="/">
+              <ListItemIcon className={classes.listItemIcon}>
+                <ExitToAppIcon/>
               </ListItemIcon>
               <ListItemText>Close Session</ListItemText>
             </Link>
@@ -143,12 +143,12 @@ const MenuMobile = (props) => {
       </Collapse>
       <ListItem
         button
-        className={classes.list_item}
+        className={classes.listItem}
         onClick={props.clickHandler}
       >
-        <Link className={classes.link_app_bar_mobile} to="/shoppingCart">
-          <ListItemIcon className={classes.list_item_icon}>
-            <ShoppingCartIcon></ShoppingCartIcon>
+        <Link className={classes.linkAppBarMobile} to="/shoppingCart">
+          <ListItemIcon className={classes.listItemIcon}>
+            <ShoppingCartIcon/>
           </ListItemIcon>
           <ListItemText>My Orders</ListItemText>
         </Link>

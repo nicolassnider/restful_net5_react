@@ -32,54 +32,60 @@ const AdminMenu = () => {
         className={classes.button_icon}
         onClick={handleClick}
       >
-        <div className={classes.link_app_bar_desktop}>
-          <AdminIcon className={classes.mr}>Admin</AdminIcon>
+        <div className={classes.linkAppBarDesktop}>
+          <AdminIcon className={classes.mr} />
           Admin
-          <KeyboardArrowDownIcon></KeyboardArrowDownIcon>
+          <KeyboardArrowDownIcon />
         </div>
       </Button>
       <Menu
         elevation={2}
         anchorEl={anchorEl}
-        getContentAnchorEl={null}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        transformOrigin={{ vertical: "top", horizontal: "center" }}
+        getcontentanchorel={null}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem className={classes.list_item} onClick={handleClose}>
-          <Link className={classes.link_app_bar_mobile} to="/admin/users">
-            <ListItemIcon className={classes.list_item_icon}>
-              <GroupIcon></GroupIcon>
+        <MenuItem className={classes.listItem} onClick={handleClose}>
+          <Link className={classes.linkAppBarMobile} to="/admin/users">
+            <ListItemIcon className={classes.listItemIcon}>
+              <GroupIcon/>
             </ListItemIcon>
             <ListItemText>Users</ListItemText>
           </Link>
         </MenuItem>
-        <MenuItem className={classes.list_item} onClick={handleClose}>
-          <Link className={classes.link_app_bar_mobile} to="/">
-            <ListItemIcon className={classes.list_item_icon}>
-              <StorefrontIcon></StorefrontIcon>
+        <MenuItem className={classes.listItem} onClick={handleClose}>
+          <Link className={classes.linkAppBarMobile} to="/admin/products">
+            <ListItemIcon className={classes.listItemIcon}>
+              <StorefrontIcon/>
             </ListItemIcon>
             <ListItemText>Products</ListItemText>
           </Link>
         </MenuItem>
-        <MenuItem className={classes.list_item} onClick={handleClose}>
-          <Link className={classes.link_app_bar_mobile} to="/">
-            <ListItemIcon className={classes.list_item_icon}>
-              <ShoppingCartIcon></ShoppingCartIcon>
+        <MenuItem className={classes.listItem} onClick={handleClose}>
+          <Link className={classes.linkAppBarMobile} to="/">
+            <ListItemIcon className={classes.listItemIcon}>
+              <ShoppingCartIcon/>
             </ListItemIcon>
             <ListItemText>Orders</ListItemText>
           </Link>
         </MenuItem>
-        <MenuItem className={classes.list_item} onClick={handleClose}>
-            <Link className={classes.link_app_bar_mobile} to="/profile">
-              <ListItemIcon className={classes.list_item_icon}>
-                <ExitToAppIcon></ExitToAppIcon>
-              </ListItemIcon>
-              <ListItemText>Close Session</ListItemText>
-            </Link>
-          </MenuItem>
+        <MenuItem className={classes.listItem} onClick={handleClose}>
+          <Link className={classes.linkAppBarMobile} to="/profile">
+            <ListItemIcon className={classes.listItemIcon}>
+              <ExitToAppIcon/>
+            </ListItemIcon>
+            <ListItemText>Close Session</ListItemText>
+          </Link>
+        </MenuItem>
       </Menu>
     </>
   );

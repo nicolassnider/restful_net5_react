@@ -34,10 +34,10 @@ const PurchaseProcess = (props) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const completePurchase = () =>{
+  const completePurchase = () => {
     const idPurchase = "773194a9-6d14-417e-8728-6665b977baa2";
-    props.history.push('/purchaseOrder/'+idPurchase)
-  }
+    props.history.push("/purchaseOrder/" + idPurchase);
+  };
   return (
     <Container className={classes.containermt}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -57,7 +57,7 @@ const PurchaseProcess = (props) => {
       {activeStep === 1 ? (
         <Grid container>
           <Grid item>
-            <Typography variant="h6" className={classes.text_title}>
+            <Typography variant="h6" className={classes.textTitle}>
               Product Shipping
             </Typography>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -69,7 +69,7 @@ const PurchaseProcess = (props) => {
                     InputLabelProps={{
                       shrink: true,
                     }}
-                  ></TextField>
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -78,7 +78,7 @@ const PurchaseProcess = (props) => {
                     InputLabelProps={{
                       shrink: true,
                     }}
-                  ></TextField>
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -87,7 +87,7 @@ const PurchaseProcess = (props) => {
                     InputLabelProps={{
                       shrink: true,
                     }}
-                  ></TextField>
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <Button
@@ -103,13 +103,13 @@ const PurchaseProcess = (props) => {
           </Grid>
         </Grid>
       ) : activeStep === 2 ? (
-        <Grid className={classes.grid_pc}>
-          <Typography variant="h6" className={classes.text_title}>
+        <Grid className={classes.gridPC}>
+          <Typography variant="h6" className={classes.textTitle}>
             Payment Methods
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <FormControl className={classes.form_control}>
+              <FormControl className={classes.formControl}>
                 <FormLabel>Select Payment Method</FormLabel>
                 <RadioGroup>
                   <FormControlLabel
@@ -125,7 +125,7 @@ const PurchaseProcess = (props) => {
             <Button
               variant="contained"
               color="primary"
-              className={classes.button_back}
+              className={classes.buttonBack}
               onClick={backStepProcees}
             >
               Back
@@ -140,19 +140,19 @@ const PurchaseProcess = (props) => {
           </Grid>
         </Grid>
       ) : activeStep === 3 ? (
-        <Grid container className={classes.grid_pc}>
-          <Grid item md={8} xs={12} className={classes.grid_lr}>
-            <Typography variant="h6" className={classes.text_title}>
+        <Grid container className={classes.gridPC}>
+          <Grid item md={8} xs={12} className={classes.gridLR}>
+            <Typography variant="h6" className={classes.textTitle}>
               Shipping
             </Typography>
             <Typography>Address: asdasd 1231</Typography>
             <Divider className={classes.divider}></Divider>
-            <Typography variant="h6" className={classes.text_title}>
+            <Typography variant="h6" className={classes.textTitle}>
               Payment Method
             </Typography>
             <Typography>Method: Paypal</Typography>
             <Divider className={classes.divider}></Divider>
-            <Typography variant="h6" className={classes.text_title}>
+            <Typography variant="h6" className={classes.textTitle}>
               Products
             </Typography>
             <TableContainer className={classes.gridmb}>
@@ -161,18 +161,18 @@ const PurchaseProcess = (props) => {
                   <TableRow>
                     <TableCell>
                       <CardMedia
-                        className={classes.img_product_pc}
+                        className={classes.imgProductPC}
                         image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
                         title="product"
                       ></CardMedia>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_detail}>
+                      <Typography className={classes.textDetail}>
                         Bomber Jacket Casu SD
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_detail}>
+                      <Typography className={classes.textDetail}>
                         2 * $25.00 = $50.00
                       </Typography>
                     </TableCell>
@@ -184,12 +184,11 @@ const PurchaseProcess = (props) => {
               <Button
                 variant="contained"
                 color="primary"
-                className={classes.button_back}
+                className={classes.buttonBack}
                 onClick={backStepProcees}
               >
                 Back
               </Button>
-              
             </Grid>
           </Grid>
           <Grid item md={4} xs={12}>
@@ -198,62 +197,67 @@ const PurchaseProcess = (props) => {
                 <TableBody>
                   <TableRow>
                     <TableCell colSpan={2}>
-                      <Typography variant="h6" className={classes.text_title}>
+                      <Typography variant="h6" className={classes.textTitle}>
                         Resume
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         Products
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         $50.00
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         Shipping
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         $2.00
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         Tax
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         $8.00
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         Total
                       </Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography className={classes.text_title}>
+                      <Typography className={classes.textTitle}>
                         $60.00
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Button variant="contained" color="primary" size="large" onClick={completePurchase}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        onClick={completePurchase}
+                      >
                         Complete Order
                       </Button>
                     </TableCell>
