@@ -21,7 +21,12 @@ const PurchaseOrder = (props) => {
   const messagePaid = "Paid 2020-12-20";
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}>
+    <Container
+      className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}
+    >
       <Typography variant="h5" className={classes.textTitle}>
         Purchase Order: {id.toUpperCase()}
       </Typography>
@@ -58,7 +63,10 @@ const PurchaseOrder = (props) => {
           <Typography variant="h6" className={classes.textTitle}>
             Products
           </Typography>
-          <TableContainer className={classes.gridmb}>
+          <TableContainer
+            className={classes.gridmb}
+            style={{ marginTop: 5, marginBottom: 20 }}
+          >
             <Table>
               <TableBody>
                 <TableRow>
@@ -114,9 +122,7 @@ const PurchaseOrder = (props) => {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    <Typography className={classes.textTitle}>
-                      $2.00
-                    </Typography>
+                    <Typography className={classes.textTitle}>$2.00</Typography>
                   </TableCell>
                 </TableRow>
                 <TableRow>
@@ -124,16 +130,12 @@ const PurchaseOrder = (props) => {
                     <Typography className={classes.textTitle}>Tax</Typography>
                   </TableCell>
                   <TableCell>
-                    <Typography className={classes.textTitle}>
-                      $8.00
-                    </Typography>
+                    <Typography className={classes.textTitle}>$8.00</Typography>
                   </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
-                    <Typography className={classes.textTitle}>
-                      Total
-                    </Typography>
+                    <Typography className={classes.textTitle}>Total</Typography>
                   </TableCell>
                   <TableCell>
                     <Typography className={classes.textTitle}>
@@ -143,21 +145,27 @@ const PurchaseOrder = (props) => {
                 </TableRow>
                 <TableRow>
                   <TableCell colSpan={2}>
-                    <Button
+                    {/*client buttons*/
+                    /*<Button
                       variant="contained"
                       color="primary"
                       size="large"
                       fullWidth
                       className={classes.gridmb}
+                      style={{ marginTop: 5, marginBottom: 20 }}
                     >
                       Paypal
                     </Button>
+                    <Button variant="contained" size="large" fullWidth>
+                      Credit card </Button>*/}
+                      {/*admin button*/}
                     <Button
                       variant="contained"
+                      color="primary"
                       size="large"
                       fullWidth
                     >
-                      Credit card
+                      Mark as Delivered
                     </Button>
                   </TableCell>
                 </TableRow>

@@ -23,7 +23,10 @@ const UsersList = (props) => {
     props.history.push("/admin/users/" + id);
   };
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Typography variant="h4" className={classes.textTitle}>
         Users
       </Typography>

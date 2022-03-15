@@ -119,7 +119,7 @@ const MenuMobile = (props) => {
             className={classes.listSubItem}
             onClick={props.clickHandler}
           >
-            <Link className={classes.linkAppBarMobile} to="/">
+            <Link className={classes.linkAppBarMobile} to="/admin/orders">
               <ListItemIcon className={classes.listItemIcon}>
                 <ShoppingCartIcon/>
               </ListItemIcon>

@@ -41,7 +41,10 @@ const RegisterUser = () => {
   };
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Grid container justifyContent="center">
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
@@ -58,7 +61,8 @@ const RegisterUser = () => {
               }}
             >
               <Grid container spacing={2}>
-                <Grid item md={6} xs={12} className={classes.gridmb}>
+                <Grid item md={6} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="First Name"
                     variant="outlined"
@@ -68,7 +72,8 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={6} xs={12} className={classes.gridmb}>
+                <Grid item md={6} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Last name"
                     variant="outlined"
@@ -78,7 +83,8 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Email"
                     variant="outlined"
@@ -89,7 +95,8 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Password"
                     variant="outlined"
@@ -100,7 +107,8 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <Button
                     variant="contained"
                     fullWidth

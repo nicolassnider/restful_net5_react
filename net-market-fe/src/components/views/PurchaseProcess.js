@@ -39,7 +39,10 @@ const PurchaseProcess = (props) => {
     props.history.push("/purchaseOrder/" + idPurchase);
   };
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Stepper activeStep={activeStep} alternativeLabel>
         <Step>
           <StepLabel>Register</StepLabel>
@@ -155,7 +158,8 @@ const PurchaseProcess = (props) => {
             <Typography variant="h6" className={classes.textTitle}>
               Products
             </Typography>
-            <TableContainer className={classes.gridmb}>
+            <TableContainer className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
               <Table>
                 <TableBody>
                   <TableRow>

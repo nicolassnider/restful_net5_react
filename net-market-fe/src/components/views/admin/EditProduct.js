@@ -10,17 +10,14 @@ import React from "react";
 import useStyles from "../../../theme/useStyles";
 import ImageUploader from "react-images-upload";
 
-const AddProduct = () => {
+const EditProduct = () => {
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}
-      style={{
-        marginTop: 30,
-      }}>
+    <Container className={classes.containermt}>
       <Grid container justifyContent="center">
-        <Grid item sm={6} xs={12}>
+        <Grid item sm={6} x2={12}>
           <Typography variant="h4" className={classes.textTitle}>
-            Add Products
+            Edit Product
           </Typography>
           <form onSubmit={(e) => e.preventDefault()} className={classes.form}>
             <TextField
@@ -28,7 +25,7 @@ const AddProduct = () => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}
+              style={{ marginTop: 5, marginBottom: 20 }}
               InputLabelProps={{ shrink: true }}
             />
 
@@ -37,7 +34,7 @@ const AddProduct = () => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}
+              style={{ marginTop: 5, marginBottom: 20 }}
               InputLabelProps={{ shrink: true }}
             />
 
@@ -46,7 +43,7 @@ const AddProduct = () => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}
+              style={{ marginTop: 5, marginBottom: 20 }}
               InputLabelProps={{ shrink: true }}
             />
 
@@ -55,7 +52,7 @@ const AddProduct = () => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}
+              style={{ marginTop: 5, marginBottom: 20 }}
               InputLabelProps={{ shrink: true }}
             />
 
@@ -64,7 +61,7 @@ const AddProduct = () => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}
+              style={{ marginTop: 5, marginBottom: 20 }}
               InputLabelProps={{ shrink: true }}
               multiline
               rows={4}
@@ -79,12 +76,20 @@ const AddProduct = () => {
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
-                <Avatar variant="square" style={{width:175,height:175,backgroundColor:"#F2F2F2"}} className={classes.productAvatar} />
+                <Avatar
+                  variant="square"
+                  style={{
+                    width: 175,
+                    height: 175,
+                    backgroundColor: "#F2F2F2",
+                  }}
+                  className={classes.productAvatar}
+                />
               </Grid>
             </Grid>
 
             <Button variant="contained" color="primary">
-              Add
+              Edit
             </Button>
           </form>
         </Grid>
@@ -93,4 +98,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default EditProduct;

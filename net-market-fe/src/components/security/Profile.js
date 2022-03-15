@@ -28,7 +28,10 @@ const Profile = (props) => {
     props.history.push("/purchaseOrder/" + id);
   };
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Grid container spacing={2}>
         <Grid item md={3} cs={12}>
           <Typography variant="h5" className={classes.textTitle}>
@@ -59,6 +62,7 @@ const Profile = (props) => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value="juan"
             />
             <TextField
@@ -66,6 +70,7 @@ const Profile = (props) => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value="perez"
             />
             <TextField
@@ -73,6 +78,7 @@ const Profile = (props) => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value="juan.perez@gmail.com"
             />
             <Divider />
@@ -81,6 +87,7 @@ const Profile = (props) => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value="juan.perez@gmail.com"
             />
             <TextField
@@ -88,6 +95,7 @@ const Profile = (props) => {
               variant="outlined"
               fullWidth
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value="juan.perez@gmail.com"
             />
             <Button variant="contained" color="primary">

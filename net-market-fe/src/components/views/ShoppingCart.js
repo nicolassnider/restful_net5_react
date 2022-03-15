@@ -26,7 +26,10 @@ const ShoppingCart = (props) => {
   };
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Typography variant="h4" className={classes.textTitle}>
         Shopping cart
       </Typography>
@@ -78,7 +81,8 @@ const ShoppingCart = (props) => {
               Subtotal ({productArray.length}) Products
             </Typography>
             <Typography className={classes.textTitle}>$ 456456.60</Typography>
-            <Divider className={classes.gridmb} />
+            <Divider className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}} />
             <Button
               variant="contained"
               color="primary"

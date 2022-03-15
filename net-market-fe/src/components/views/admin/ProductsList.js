@@ -17,14 +17,20 @@ import { TestProductArray } from "../../data/dataTest";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const ProducstList = (props) => {
+const ProductsList = (props) => {
   const classes = useStyles();
   const products = TestProductArray;
   const addProduct = () => {
     props.history.push("/admin/addProduct");
   };
+  const editProduct=(id)=>{
+    props.history.push("/admin/editProduct/"+id)
+  }
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Grid container>
         <Grid item lg={6} sm={6} xs={12}>
           <Typography variant="h4" className={classes.textTitle}>
@@ -62,7 +68,7 @@ const ProducstList = (props) => {
                 <TableCell>{product.price}</TableCell>
                 <TableCell>{product.brandId}</TableCell>
                 <TableCell>
-                  <Button variant="contained" color="primary">
+                  <Button variant="contained" color="primary" onClick={()=>{editProduct(product.key)}}>
                     <EditIcon />
                   </Button>
                   <Button variant="contained" color="secondary">
@@ -78,4 +84,4 @@ const ProducstList = (props) => {
   );
 };
 
-export default ProducstList;
+export default ProductsList;

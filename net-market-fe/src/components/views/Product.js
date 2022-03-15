@@ -128,7 +128,10 @@ const Product = () => {
 
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Grid container justifyContent="center">
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
@@ -140,7 +143,8 @@ const Product = () => {
               }}
             >
               <Grid container spacing={2}>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Name"
                     variant="outlined"
@@ -150,7 +154,8 @@ const Product = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Stock"
                     variant="outlined"
@@ -160,7 +165,8 @@ const Product = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     select
                     label="Brand"
@@ -177,7 +183,8 @@ const Product = () => {
                   </TextField>
                 </Grid>
 
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     select
                     label="Category"
@@ -193,7 +200,8 @@ const Product = () => {
                     <MenuItem value="categ3">categ3</MenuItem>
                   </TextField>
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Price"
                     variant="outlined"
@@ -203,7 +211,8 @@ const Product = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <TextField
                     label="Image"
                     variant="outlined"
@@ -213,7 +222,8 @@ const Product = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}>
+                <Grid item md={12} xs={12} className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}>
                   <Button
                     variant="contained"
                     fullWidth
@@ -229,7 +239,10 @@ const Product = () => {
           </Card>
         </Grid>
       </Grid>
-      <TableContainer component={Paper} className={classes.containermt}>
+      <TableContainer component={Paper} className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -296,6 +309,7 @@ const Product = () => {
               fullWidth
               name="nameEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.nameEdit}
               onChange={handleChangeEdit}
             />
@@ -305,6 +319,7 @@ const Product = () => {
               fullWidth
               name="stockEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.stockEdit}
               onChange={handleChangeEdit}
             />
@@ -316,6 +331,7 @@ const Product = () => {
               align="left"
               name="brandIdEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.brandIdEdit}
               onChange={handleChangeEdit}
             >
@@ -331,6 +347,7 @@ const Product = () => {
               align="left"
               name="categoryIdEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.categoryIdEdit}
               onChange={handleChangeEdit}
             >
@@ -344,6 +361,7 @@ const Product = () => {
               fullWidth
               name="priceEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.priceEdit}
               onChange={handleChangeEdit}
             />
@@ -353,6 +371,7 @@ const Product = () => {
               fullWidth
               name="imageEdit"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               value={productEdit.imageEdit}
               onChange={handleChangeEdit}
             />
@@ -361,6 +380,7 @@ const Product = () => {
               fullWidth
               color="primary"
               className={classes.gridmb}
+              style= {{marginTop: 5,marginBottom: 20}}
               type="submit"
               onClick={editData}
             >

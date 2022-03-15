@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+
 import theme from "../theme/theme";
 
 const useStyles = makeStyles({
@@ -9,7 +10,7 @@ const useStyles = makeStyles({
     padding: 30,
   },
   avatar: {
-    backgroundColor: "#0f80aa",
+    backgroundColor: "#0F80AA",
     width: 80,
     height: 80,
   },
@@ -20,10 +21,7 @@ const useStyles = makeStyles({
     marginTop: 40,
     marginBottom: 10,
   },
-  gridmb: {
-    marginTop: 5,
-    marginBottom: 20,
-  },
+  gridmb: {marginTop: 5,marginBottom: 20},
   link: {
     marginTop: 8,
     fontSize: "1.1rem",
@@ -105,7 +103,7 @@ const useStyles = makeStyles({
   price: {
     float: "right",
     padding: "0 20px 0 20px",
-    backgroundColor: "#0f80aa",
+    backgroundColor: "#0F80AA",
   },
   textCard: {
     fontWeight: "bold",
@@ -180,10 +178,10 @@ const useStyles = makeStyles({
   avatarProfile: {
     width: 130,
     height: 130,
-    backgroundColor: "#0f80aa",
+    backgroundColor: "#0F80AA",
   },
   table: {
-    border: "1px solid #e0e0e0",
+    border: "1px solid #E0E0E0",
   },
   iconDelivered: {
     color: "green",
@@ -195,7 +193,7 @@ const useStyles = makeStyles({
   },
   avatarProfileAppBar: {
     marginRight: 8,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#F2F2F2",
   },
   listSubItem: {
     padding: "0 0 0 30px",

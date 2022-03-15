@@ -2,7 +2,6 @@ import {
   Button,
   Checkbox,
   Container,
-  Divider,
   FormControl,
   FormControlLabel,
   Grid,
@@ -16,7 +15,12 @@ const EditUser = (props) => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.containermt}>
+    <Container
+      className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}
+    >
       <Grid container justifyContent="center">
         <Grid item lg={6} sm={12}>
           <Typography variant="h4" className={classes.textTitle}>
@@ -30,6 +34,7 @@ const EditUser = (props) => {
               fullWidth
               disabled
               className={classes.gridmb}
+              style={{ marginTop: 5, marginBottom: 20 }}
             />
             <TextField
               label="Email"
@@ -37,14 +42,22 @@ const EditUser = (props) => {
               value="juan.perez@gmail.com"
               fullWidth
               disabled
+              style={{ marginTop: 5, marginBottom: 20 }}
             />
-            <FormControl className={classes.checkbox}>
+            <FormControl
+              style={{
+                display: "block",
+                padding: 0,
+                marginTop: 5,
+                marginBottom: 5,
+              }}
+              className={classes.checkbox}
+            >
               <FormControlLabel
                 control={<Checkbox color="primary" />}
                 label="Admin Profile"
               />
             </FormControl>
-            <Divider/>
             <Button variant="contained" color="primary">
               Update
             </Button>

@@ -22,7 +22,10 @@ const ProductDetail = (props) => {
     }
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}>
+    <Container className={classes.containermt}
+      style={{
+        marginTop: 30,
+      }}>
       <Typography variant="h4" className={classes.textTitle}>
         Bomber Jacket Casu SD
       </Typography>

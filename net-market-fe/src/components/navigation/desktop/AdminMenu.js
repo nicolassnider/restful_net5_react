@@ -71,7 +71,7 @@ const AdminMenu = () => {
           </Link>
         </MenuItem>
         <MenuItem className={classes.listItem} onClick={handleClose}>
-          <Link className={classes.linkAppBarMobile} to="/">
+          <Link className={classes.linkAppBarMobile} to="/admin/orders">
             <ListItemIcon className={classes.listItemIcon}>
               <ShoppingCartIcon/>
             </ListItemIcon>
