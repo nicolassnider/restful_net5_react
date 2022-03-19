@@ -1,5 +1,7 @@
 using BusinessLogic.Data;
+using Core.Entities;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +29,11 @@ namespace WebApi
                     var context = services.GetRequiredService<MarketDbContext>();
                     await context.Database.MigrateAsync();
                     await MarketDbContextData.LoadDataAsync(context,loggerFactory);
+                    var userManager = services.GetRequiredService<UserManager<User>>();
+                    var identityContext = services.GetRequiredService<SecurityDbContext>();
+                    await identityContext.Database.MigrateAsync();
+                    await SecurityDbContextData.SeedUserAsync(userManager);
+                     
                 }
                 catch (Exception e)
                 {
