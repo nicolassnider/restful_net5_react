@@ -2,6 +2,7 @@ using BusinessLogic.Data;
 using BusinessLogic.Logic;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,9 +12,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WebApi.Dtos;
 using WebApi.Middlewares;
@@ -32,11 +35,21 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ITokenService, TokenService>();
             var builder = services.AddIdentityCore<User>();
             builder = new IdentityBuilder(builder.UserType,builder.Services);
             builder.AddEntityFrameworkStores<SecurityDbContext>();
             builder.AddSignInManager<SignInManager<User>>();
-            services.AddAuthentication();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token:Key"])),
+                    ValidIssuer=Configuration["Token:Issuer"],
+                    ValidateIssuer=true
+                };
+            });
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddDbContext<MarketDbContext>(opt =>
@@ -75,6 +88,8 @@ namespace WebApi
             app.UseRouting();
 
             app.UseCors("CorsRule");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

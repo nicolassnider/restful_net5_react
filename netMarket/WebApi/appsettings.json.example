@@ -1,6 +1,11 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Data Source=***;Initial Catalog=netMarket;User Id=***;Password=***;"
+    "DefaultConnection": "Data Source=***;Initial Catalog=netMarket;User Id=***;Password=***;",
+    "IdentitySecurity": "Data Source=***;Initial Catalog=IdentitySecurity;User Id=***;Password=***;"
+  },
+  "Token": {
+    "Key": "secret key",
+    "Issuer": "server"
   },
   "Logging": {
     "LogLevel": {
