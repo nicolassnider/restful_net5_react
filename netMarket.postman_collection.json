@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "db811bf8-6a00-4a25-a889-1c6283fd0c45",
+		"name": "netMarket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GetProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductOrderBy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product?sort=price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductOrderByAndCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product?sort=price&category=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "price"
+								},
+								{
+									"key": "category",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductPaginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product?pageIndex=2&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product?search=a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductNotExist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product/10000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Errors",
+			"item": [
+				{
+					"name": "GetZapato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:51726/api/Zapato/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "51726",
+							"path": [
+								"api",
+								"Zapato",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"nicolas.snider@gmail.com\",\r\n    \"password\":\"Admin!1234!\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/User/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"juan.perez@gmail.com\",\r\n    \"UserName\":\"juanperez\",\r\n    \"FirstName\":\"juan\",\r\n    \"LastNAme\":\"perez\",\r\n    \"Password\":\"JuanPerez1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/User/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pY29sYXMuc25pZGVyQGdtYWlsLmNvbSIsIm5hbWUiOiJBZG1pbiIsImZhbWlseV9uYW1lIjoiQWRtaW4iLCJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjQ4MjM0MDUwLCJleHAiOjE2NTM0MTgwNDksImlhdCI6MTY0ODIzNDA1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIn0.yvs97YMdYgGfJj0bMRQNO_lxuGq2UJSgk6nGqthG1aL1FCHA0_UhOCeFiZuQQ16z8mls2r71I8SN4Z3VZ08j5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/User/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"User",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateEmail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/User/validateemail?email=nicolas.snider@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"User",
+								"validateemail"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "nicolas.snider@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAddress",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
