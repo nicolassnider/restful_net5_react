@@ -8,7 +8,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWbA/kZsaIkaVqzHuqDhSjQAAAAACAAAAAAAQZgAAAAEAACAAAADCMGlC92JbTPh9P5cQVFGU0+4GC1zOWNBvYERfXW9HRwAAAAAOgAAAAAIAACAAAAC00qOBQLBZOPMOkM3MTsVZAbZSYUhIQ0n4tMAqNnKMHSAAAAATsQQkVHRA0QoLJPG3mayVlhikqlhZ+NjS8qLWoOSElUAAAADE2jLanU6d3+nMRc1DzheI4SSBUdN63k5gtbQCjUrTaGP3mTvZNl8vvKzEE+tmuuKfxTS6sF/2QhdV3GrLV2fX</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.30/www.nicolassnider.somee.com</_PublishTargetUrl>
-    <History>True|2022-03-10T15:20:43.5150675Z;False|2022-03-10T11:56:15.4495983-03:00;False|2022-03-10T11:54:26.8788657-03:00;False|2022-03-10T11:54:01.9690389-03:00;False|2022-03-10T11:52:29.6571581-03:00;</History>
+    <History>True|2022-03-25T23:31:01.7432202Z;False|2022-03-25T20:12:33.6069220-03:00;True|2022-03-10T12:20:43.5150675-03:00;False|2022-03-10T11:56:15.4495983-03:00;False|2022-03-10T11:54:26.8788657-03:00;False|2022-03-10T11:54:01.9690389-03:00;False|2022-03-10T11:52:29.6571581-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="api-ms-win-core-console-l1-1-0.dll">
@@ -141,7 +141,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/28/2022 10:59:54</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>03/06/2022 20:44:32</publishTime>
+      <publishTime>03/19/2022 00:22:14</publishTime>
     </File>
     <File Include="aspnetcorev2_inprocess.dll">
       <publishTime>02/17/2022 00:07:40</publishTime>
@@ -153,10 +153,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/05/2022 12:57:34</publishTime>
     </File>
     <File Include="BusinessLogic.dll">
-      <publishTime>03/10/2022 12:01:23</publishTime>
+      <publishTime>03/25/2022 20:04:01</publishTime>
     </File>
     <File Include="BusinessLogic.pdb">
-      <publishTime>03/10/2022 12:01:23</publishTime>
+      <publishTime>03/25/2022 20:04:01</publishTime>
     </File>
     <File Include="clrcompression.dll">
       <publishTime>02/15/2022 17:50:38</publishTime>
@@ -168,10 +168,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/15/2022 17:50:14</publishTime>
     </File>
     <File Include="Core.dll">
-      <publishTime>03/10/2022 12:01:22</publishTime>
+      <publishTime>03/25/2022 20:03:59</publishTime>
     </File>
     <File Include="Core.pdb">
-      <publishTime>03/10/2022 12:01:22</publishTime>
+      <publishTime>03/25/2022 20:03:59</publishTime>
     </File>
     <File Include="coreclr.dll">
       <publishTime>02/15/2022 17:50:14</publishTime>
@@ -202,6 +202,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.dll">
       <publishTime>02/17/2022 00:20:42</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
+      <publishTime>02/17/2022 00:16:50</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.OAuth.dll">
       <publishTime>02/17/2022 00:20:42</publishTime>
@@ -570,7 +573,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2022 00:20:38</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Options.dll">
-      <publishTime>10/22/2021 20:50:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Primitives.dll">
       <publishTime>10/22/2021 20:50:40</publishTime>
@@ -582,19 +585,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/18/2020 17:11:54</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
-      <publishTime>10/18/2019 20:39:24</publishTime>
+      <publishTime>02/18/2022 18:38:58</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Logging.dll">
-      <publishTime>10/18/2019 20:40:20</publishTime>
+      <publishTime>02/18/2022 18:41:22</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Protocols.dll">
-      <publishTime>10/18/2019 20:41:02</publishTime>
+      <publishTime>06/29/2020 22:06:48</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
-      <publishTime>10/18/2019 20:48:48</publishTime>
+      <publishTime>06/29/2020 22:13:54</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Tokens.dll">
-      <publishTime>10/18/2019 20:43:40</publishTime>
+      <publishTime>02/18/2022 18:47:08</publishTime>
     </File>
     <File Include="Microsoft.JSInterop.dll">
       <publishTime>02/17/2022 00:20:58</publishTime>
@@ -636,7 +639,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/15/2022 17:53:38</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
-      <publishTime>03/20/2017 17:03:18</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="System.AppContext.dll">
       <publishTime>02/15/2022 17:54:10</publishTime>
@@ -762,7 +765,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/15/2022 17:54:14</publishTime>
     </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
-      <publishTime>10/18/2019 20:38:18</publishTime>
+      <publishTime>02/18/2022 18:37:28</publishTime>
     </File>
     <File Include="System.IO.Compression.Brotli.dll">
       <publishTime>02/15/2022 17:54:14</publishTime>
@@ -1146,22 +1149,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/02/2020 01:59:50</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>03/10/2022 12:01:41</publishTime>
+      <publishTime>03/25/2022 20:12:47</publishTime>
     </File>
     <File Include="WebApi.deps.json">
-      <publishTime>03/10/2022 12:01:40</publishTime>
+      <publishTime>03/25/2022 20:12:46</publishTime>
     </File>
     <File Include="WebApi.dll">
-      <publishTime>03/10/2022 12:01:39</publishTime>
+      <publishTime>03/25/2022 20:12:45</publishTime>
     </File>
     <File Include="WebApi.exe">
-      <publishTime>03/10/2022 12:01:39</publishTime>
+      <publishTime>03/25/2022 20:12:45</publishTime>
     </File>
     <File Include="WebApi.pdb">
-      <publishTime>03/10/2022 12:01:39</publishTime>
+      <publishTime>03/25/2022 20:12:45</publishTime>
     </File>
     <File Include="WebApi.runtimeconfig.json">
-      <publishTime>03/10/2022 12:01:40</publishTime>
+      <publishTime>03/25/2022 20:04:10</publishTime>
     </File>
     <File Include="WindowsBase.dll">
       <publishTime>02/15/2022 17:53:32</publishTime>

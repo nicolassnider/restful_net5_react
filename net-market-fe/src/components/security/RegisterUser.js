@@ -11,12 +11,14 @@ import PersonIcon from "@mui/icons-material/PersonAdd";
 import React, { useState } from "react";
 import useStyles from "../../theme/useStyles";
 import { Link } from "react-router-dom";
+import { registerUser } from "../../actions/UserActions";
 
 const clearUser = {
   firstName: "",
   lastName: "",
   email: "",
   password: "",
+  userName: "",
 };
 
 const RegisterUser = () => {
@@ -25,6 +27,7 @@ const RegisterUser = () => {
     lastName: "",
     email: "",
     password: "",
+    userName: "",
   });
 
   const handleChange = (event) => {
@@ -36,20 +39,22 @@ const RegisterUser = () => {
   };
 
   const saveUser = () => {
-    console.log(user);
-    setUser(clearUser);
+    registerUser(user)
+    .then(response => {console.log('response',response)});
   };
   const classes = useStyles();
   return (
-    <Container className={classes.containermt}
+    <Container
+      className={classes.containermt}
       style={{
         marginTop: 30,
-      }}>
+      }}
+    >
       <Grid container justifyContent="center">
         <Grid item lg={12} md={12}>
           <Card className={classes.card} align="center">
             <Avatar className={classes.avatar}>
-              <PersonIcon className={classes.icon}/>
+              <PersonIcon className={classes.icon} />
             </Avatar>
             <Typography variant="h5" color="primary">
               Register user
@@ -61,8 +66,13 @@ const RegisterUser = () => {
               }}
             >
               <Grid container spacing={2}>
-                <Grid item md={6} xs={12} className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}>
+                <Grid
+                  item
+                  md={6}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
                   <TextField
                     label="First Name"
                     variant="outlined"
@@ -72,8 +82,13 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={6} xs={12} className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}>
+                <Grid
+                  item
+                  md={6}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
                   <TextField
                     label="Last name"
                     variant="outlined"
@@ -83,8 +98,13 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}>
+                <Grid
+                  item
+                  md={12}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
                   <TextField
                     label="Email"
                     variant="outlined"
@@ -95,8 +115,13 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}>
+                <Grid
+                  item
+                  md={12}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
                   <TextField
                     label="Password"
                     variant="outlined"
@@ -107,8 +132,29 @@ const RegisterUser = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid item md={12} xs={12} className={classes.gridmb}
-              style= {{marginTop: 5,marginBottom: 20}}>
+                <Grid
+                  item
+                  md={6}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
+                  <TextField
+                    label="User Name"
+                    variant="outlined"
+                    fullWidth
+                    name="userName"
+                    value={user.userName}
+                    onChange={handleChange}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  xs={12}
+                  className={classes.gridmb}
+                  style={{ marginTop: 5, marginBottom: 20 }}
+                >
                   <Button
                     variant="contained"
                     fullWidth
