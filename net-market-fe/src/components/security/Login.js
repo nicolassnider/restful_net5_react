@@ -7,16 +7,51 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import useStyles from "../../theme/useStyles";
 import { Link } from "react-router-dom";
+import { loginUser } from "../../actions/UserActions";
+import { useStateValue } from "../../context/store";
 
-const Login = () => {
+const clearUser = {
+  email: "",
+  password: "",
+};
+
+const Login = (props) => {
+  const[{userSession},dispatch]=useStateValue();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const loginEventUSer = () => {
+    loginUser(user,dispatch)
+    .then(response=>{
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        console.log("correcto "+response.data);
+        props.history.push("/");
+      }
+      else {
+        console.log("error "+console.log(response.data))
+      }
+    })
+  };
+
   const classes = useStyles();
   return (
     <Container
-      className={classes.containermt}      
+      className={classes.containermt}
       style={{
         marginTop: 30,
       }}
@@ -30,7 +65,7 @@ const Login = () => {
             <Typography variant="h5" color="primary">
               Login
             </Typography>
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={(e)=>(e.preventDefault())}>
               <Grid container spacing={2}>
                 <Grid
                   item
@@ -43,6 +78,9 @@ const Login = () => {
                     variant="outlined"
                     fullWidth
                     type="email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid
@@ -56,6 +94,9 @@ const Login = () => {
                     variant="outlined"
                     fullWidth
                     type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid
@@ -64,7 +105,13 @@ const Login = () => {
                   className={classes.gridmb}
                   style={{ marginTop: 5, marginBottom: 20 }}
                 >
-                  <Button variant="contained" fullWidth color="primary">
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    color="primary"
+                    type="submit"
+                    onClick={loginEventUSer}
+                  >
                     Access
                   </Button>
                 </Grid>

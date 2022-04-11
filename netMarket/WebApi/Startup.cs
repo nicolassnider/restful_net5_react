@@ -61,6 +61,7 @@ namespace WebApi
             {
                 x.UseSqlServer(Configuration.GetConnectionString("IdentitySecurity"));
             });
+
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddControllers();
             services.AddCors(opt =>
@@ -73,6 +74,7 @@ namespace WebApi
                     .WithOrigins("*");
                 });
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,7 +99,7 @@ namespace WebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
+            });            
         }
     }
 }

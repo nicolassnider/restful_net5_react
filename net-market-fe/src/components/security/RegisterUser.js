@@ -12,16 +12,11 @@ import React, { useState } from "react";
 import useStyles from "../../theme/useStyles";
 import { Link } from "react-router-dom";
 import { registerUser } from "../../actions/UserActions";
+import { useStateValue } from "../../context/store";
 
-const clearUser = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  password: "",
-  userName: "",
-};
+const RegisterUser = (props) => {
 
-const RegisterUser = () => {
+  const[{userSession},dispatch] = useStateValue()
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -39,8 +34,10 @@ const RegisterUser = () => {
   };
 
   const saveUser = () => {
-    registerUser(user)
-    .then(response => {console.log('response',response)});
+    registerUser(user,dispatch).then((response) => {
+      props.history.push("/");
+      window.localStorage.setItem("token", response.data.token);
+    });
   };
   const classes = useStyles();
   return (
@@ -134,7 +131,7 @@ const RegisterUser = () => {
                 </Grid>
                 <Grid
                   item
-                  md={6}
+                  md={12}
                   xs={12}
                   className={classes.gridmb}
                   style={{ marginTop: 5, marginBottom: 20 }}

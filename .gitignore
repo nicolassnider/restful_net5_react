@@ -3,14 +3,15 @@
 ################################################################################
 
 /netMarket/.vs/netMarket
-/netMarket/Core/obj
-/netMarket/WebApi/obj
-/netMarket/WebApi/appsettings.json
-/netMarket/Core/bin/Debug/net5.0
 /netMarket/BusinessLogic/obj
-/netMarket/BusinessLogic/bin/Debug/net5.0
-/netMarket/WebApi/bin/Debug/net5.0
+/netMarket/BusinessLogic/bin
+/netMarket/Core/obj
+/netMarket/Core/bin
+/netMarket/WebApi/obj
+/netMarket/WebApi/bin
+/netMarket/WebApi/appsettings.json
 net-market-fe/node_modules
 net-market-fe/.gitignore
 /.vs/netMarket/v17
 /.vs/VSWorkspaceState.json
+net-market-fe/.vscode/settings.json

@@ -59,7 +59,7 @@ const Products = (props) => {
       </Typography>
       <Grid container spacing={4}>
         {productsPaginator.data.map((data) => (
-          <Grid item lg={3} md={6} sm={6} xs={12} key={data.key}>
+          <Grid key={data.key} item lg={3} md={6} sm={6} xs={12} >
             <Card>
               <CardMedia
                 className={classes.media}

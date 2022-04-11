@@ -13,8 +13,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useStateValue } from "../../../context/store";
+
 
 const ClientMenu = () => {
+
+  const[{userSession},dispatch] = useStateValue()
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (e) => {
@@ -44,7 +48,9 @@ const ClientMenu = () => {
               className={classes.avatarProfileAppBar}
               src="https://png.pngtree.com/png-clipart/20220109/original/pngtree-awesome-gamer-illustration-for-t-shirt-design-png-image_7021992.png"
             />
-            Juan Perez
+            {userSession
+            ?(userSession.authenticated?`${userSession.user.firstName} ${userSession.user.lastName}`:"Guest")
+            :"Guest" }
             <KeyboardArrowDownIcon/>
           </div>
         </Button>

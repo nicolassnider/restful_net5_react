@@ -16,31 +16,44 @@ import ProductsList from "./components/views/admin/ProductsList";
 import AddProduct from "./components/views/admin/AddProduct";
 import EditProduct from "./components/views/admin/EditProduct";
 import OrdersList from "./components/views/admin/OrdersList";
+import { useEffect, useState } from "react";
+import { getUser } from "./actions/UserActions";
+import { useStateValue } from "./context/store";
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <MenuAppBar />
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={RegisterUser} />
-          <Route exact path="/" component={Products} />
-          <Route exact path="/productDetail/:id" component={ProductDetail} />
-          <Route exact path="/shoppingCart" component={ShoppingCart} />
-          <Route exact path="/purchaseProcess" component={PurchaseProcess} />
-          <Route exact path="/purchaseOrder/:id" component={PurchaseOrder} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/admin/users" component={UsersList} />
-          <Route exact path="/admin/users/:id" component={EditUser} />
-          <Route exact path="/admin/products" component={ProductsList} />
-          <Route exact path="/admin/addProduct" component={AddProduct} />
-          <Route exact path="/admin/editProduct/:id" component={EditProduct} />
-          <Route exact path="/admin/orders" component={OrdersList} />
-        </Switch>
-      </Router>
-    </ThemeProvider>
-  );
+	const [{userSession},dispatch] = useStateValue()
+	const [serverResponse, setServerResponse] = useState(false);
+
+	useEffect(() => {
+		if (!serverResponse) {
+      getUser(dispatch).then((response) => {
+				setServerResponse(true);
+			});
+		}
+	}, [serverResponse]);
+	return (
+		<ThemeProvider theme={theme}>
+			<Router>
+				<MenuAppBar />
+				<Switch>
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/register" component={RegisterUser} />
+					<Route exact path="/" component={Products} />
+					<Route exact path="/productDetail/:id" component={ProductDetail} />
+					<Route exact path="/shoppingCart" component={ShoppingCart} />
+					<Route exact path="/purchaseProcess" component={PurchaseProcess} />
+					<Route exact path="/purchaseOrder/:id" component={PurchaseOrder} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/admin/users" component={UsersList} />
+					<Route exact path="/admin/users/:id" component={EditUser} />
+					<Route exact path="/admin/products" component={ProductsList} />
+					<Route exact path="/admin/addProduct" component={AddProduct} />
+					<Route exact path="/admin/editProduct/:id" component={EditProduct} />
+					<Route exact path="/admin/orders" component={OrdersList} />
+				</Switch>
+			</Router>
+		</ThemeProvider>
+	);
 }
 
 export default App;
