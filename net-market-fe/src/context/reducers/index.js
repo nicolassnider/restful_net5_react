@@ -1,8 +1,10 @@
 
+import shoppingCartSessionReducer from "./shoppingCartSessionReducer";
 import userSessionReducer from "./userSessionReducer";
 
-export const mainReducer = ({userSession}, action) => {
+export const mainReducer = ({userSession,shoppingCartSession}, action) => {
     return{
-        userSession: userSessionReducer(userSession, action)
+        userSession: userSessionReducer(userSession, action),
+        shoppingCartSession: shoppingCartSessionReducer(shoppingCartSession, action),
     }
 }

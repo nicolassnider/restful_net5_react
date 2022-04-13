@@ -19,16 +19,26 @@ import OrdersList from "./components/views/admin/OrdersList";
 import { useEffect, useState } from "react";
 import { getUser } from "./actions/UserActions";
 import { useStateValue } from "./context/store";
+import { getShoppingCart } from "./actions/ShoppingCartActions";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
-	const [{userSession},dispatch] = useStateValue()
+	const [{ userSession }, dispatch] = useStateValue();
 	const [serverResponse, setServerResponse] = useState(false);
 
-	useEffect(() => {
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect(async () => {
+		let shoppingCartId = window.localStorage.getItem("shoppingCart");
+
+		if (!shoppingCartId) {
+			shoppingCartId = uuidv4();
+			window.localStorage.setItem("shoppingCart", shoppingCartId);
+		}
+
 		if (!serverResponse) {
-      getUser(dispatch).then((response) => {
-				setServerResponse(true);
-			});
+			await getUser(dispatch);
+			await getShoppingCart(dispatch, shoppingCartId);
+			setServerResponse(true);
 		}
 	}, [serverResponse]);
 	return (

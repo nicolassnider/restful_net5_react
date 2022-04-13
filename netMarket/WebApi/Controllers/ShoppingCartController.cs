@@ -19,6 +19,9 @@ namespace WebApi.Controllers
             var cart = await _shoppingCart.GetShoppingCartAsync(id);
             return Ok(cart??new ShoppingCart(id));
         }
+
+            
+
         [HttpPost]
         public async Task<ActionResult<ShoppingCart>> updateShoppingCart(ShoppingCart cartParam)
         {
