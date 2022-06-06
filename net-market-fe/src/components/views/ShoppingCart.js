@@ -19,12 +19,12 @@ import { useStateValue } from "../../context/store";
 
 const ShoppingCart = (props) => {
 	const [{ shoppingCartSession }, dispatch] = useStateValue();
-	const productArray = shoppingCartSession? shoppingCartSession.items:[];
+	const productArray = shoppingCartSession ? shoppingCartSession.items : [];
 	let sum = 0;
 	productArray.forEach((product) => {
-		sum +=product.price;		
+		sum += product.price;
 	});
-	
+
 	const processPurchase = () => {
 		props.history.push("/purchaseProcess");
 	};
@@ -49,7 +49,7 @@ const ShoppingCart = (props) => {
 										<TableCell>
 											<CardMedia
 												className={classes.imgProductCC}
-												image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
+												image={item.image}
 												title={item.description}
 											/>
 										</TableCell>

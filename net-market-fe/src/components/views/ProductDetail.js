@@ -16,10 +16,10 @@ import React, { useEffect, useState } from "react";
 import { getProduct } from "../../actions/ProductActions";
 import useStyles from "../../theme/useStyles";
 import { useStateValue } from "../../context/store";
-import { addItemToShoppingCart} from "../../actions/ShoppingCartActions"
+import { addItemToShoppingCart } from "../../actions/ShoppingCartActions";
 const ProductDetail = (props) => {
 	const [{ shoppingCartSession }, dispatch] = useStateValue();
-	const [quantity,setQuantity] = useState(1);
+	const [quantity, setQuantity] = useState(1);
 	const [selectedProduct, setSelectedProduct] = useState({
 		id: 0,
 		name: "",
@@ -46,16 +46,16 @@ const ProductDetail = (props) => {
 	const addToShoppingCart = async () => {
 		const item = {
 			id: selectedProduct.id,
-            name: selectedProduct.name,
-            price: selectedProduct.price,
-            quantity: quantity,
-            image: selectedProduct.image,
-            brand: selectedProduct.brandName,
-            category: selectedProduct.categoryName
+			name: selectedProduct.name,
+			price: selectedProduct.price,
+			quantity: quantity,
+			image: selectedProduct.image,
+			brand: selectedProduct.brandName,
+			category: selectedProduct.categoryName,
 		};
 
 		await addItemToShoppingCart(shoppingCartSession, item, dispatch);
-		
+
 		props.history.push("/shoppingCart");
 	};
 	const classes = useStyles();
@@ -74,7 +74,7 @@ const ProductDetail = (props) => {
 					<Paper className={classes.paperImg} variant="outlined" square>
 						<CardMedia
 							className={classes.mediaDetail}
-							image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
+							image={selectedProduct.image}
 							title={selectedProduct.description}
 						/>
 					</Paper>
@@ -99,15 +99,15 @@ const ProductDetail = (props) => {
 									</TableCell>
 									<TableCell>
 										<TextField
-										id="product-quantity"
-										label=""
-										type="number"
-										value={quantity}
-										onChange={event=>setQuantity(event.target.value)}
-										defaultValue={1}
-										inputlabelprops={{
-											shrink: true,
-										}}
+											id="product-quantity"
+											label=""
+											type="number"
+											value={quantity}
+											onChange={(event) => setQuantity(event.target.value)}
+											defaultValue={1}
+											inputlabelprops={{
+												shrink: true,
+											}}
 										/>
 									</TableCell>
 								</TableRow>
