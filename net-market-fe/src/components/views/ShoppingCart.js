@@ -4,9 +4,7 @@ import {
 	Container,
 	Divider,
 	Grid,
-	MenuItem,
 	Paper,
-	Select,
 	Table,
 	TableBody,
 	TableCell,
@@ -16,14 +14,17 @@ import {
 } from "@mui/material";
 import React from "react";
 import useStyles from "../../theme/useStyles";
-import { TestProductArray } from "../data/dataTest";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useStateValue } from "../../context/store";
 
 const ShoppingCart = (props) => {
 	const [{ shoppingCartSession }, dispatch] = useStateValue();
-	console.log("shoppingCArtSession ", shoppingCartSession);
 	const productArray = shoppingCartSession? shoppingCartSession.items:[];
+	let sum = 0;
+	productArray.forEach((product) => {
+		sum +=product.price;		
+	});
+	
 	const processPurchase = () => {
 		props.history.push("/purchaseProcess");
 	};
@@ -50,7 +51,7 @@ const ShoppingCart = (props) => {
 												className={classes.imgProductCC}
 												image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
 												title={item.description}
-											></CardMedia>
+											/>
 										</TableCell>
 										<TableCell>
 											<Typography className={classes.textDetail}>
@@ -81,7 +82,7 @@ const ShoppingCart = (props) => {
 						<Typography variant="h6" className={classes.textTitle}>
 							Subtotal ({productArray.length}) Products
 						</Typography>
-						<Typography className={classes.textTitle}>$ 456456.60</Typography>
+						<Typography className={classes.textTitle}>$ {sum}</Typography>
 						<Divider
 							className={classes.gridmb}
 							style={{ marginTop: 5, marginBottom: 20 }}

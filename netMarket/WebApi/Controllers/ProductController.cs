@@ -53,6 +53,27 @@ namespace WebApi.Controllers
             }
             return _mapper.Map<Product, ProductDto>(product);
         }
+        [HttpPost]
+        public async Task<ActionResult<Product>> Post(Product product)
+        {
+            var result = await _productRepository.Add(product);
+            if (result == 0)
+            {
+                throw new Exception("Could not insert product");
+            }
+            return Ok(product);
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Product>> Put(int id, Product product)
+        {
+            product.Id = id;
+            var result = await _productRepository.Update(product);
+            if (result == 0)
+            {
+                throw new Exception("could not update product");
+            }
+            return Ok(product);
+        }
 
     }
 }

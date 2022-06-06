@@ -65,7 +65,7 @@ const Products = (props) => {
 						<Card>
 							<CardMedia
 								className={classes.media}
-								image="https://www.molinaripixel.com.ar/wp-content/uploads/2015/02/foto_cursos_fotografia_productos-356x534.jpg"
+								image={data.image}
 								title="title"
 							>
 								<Avatar className={classes.price} variant="square">

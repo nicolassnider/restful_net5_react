@@ -11,5 +11,6 @@ namespace WebApi.Dtos
         public string BrandName { get; set; }
         public decimal Price { get; set; }
         public string CategoryName { get; set; }
+        public string Image { get; set; }
     }
 }
