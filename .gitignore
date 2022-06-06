@@ -16,3 +16,4 @@ net-market-fe/.gitignore
 /.vs/VSWorkspaceState.json
 net-market-fe/.vscode/settings.json
 
+net-market-fe/.env
