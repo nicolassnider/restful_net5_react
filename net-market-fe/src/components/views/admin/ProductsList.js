@@ -44,6 +44,7 @@ const ProductsList = (props) => {
 	useEffect(() => {
 		const getProductsList = async () => {
 			const response = await getProducts(requestProducts);
+			console.log(response);
 			setPaginatorProducts(response.data);
 		};
 		getProductsList();

@@ -19,7 +19,7 @@ const Products = (props) => {
 
 	const [productsRequest, setProductsRequest] = useState({
 		pageIndex: 1,
-		pageSize: 2,
+		pageSize: 4,
 		search: "",
 	});
 	const openProduct = async (item) => {

@@ -32,8 +32,11 @@ export const getProduct = (id) => {
 };
 
 export const registerProduct = async (product) => {
-	const urlImage = await uploadImage(product.file);
-	product.Image = urlImage;
+	if (product.file) {
+		const urlImage = await uploadImage(product.file);
+		product.Image = urlImage;
+	}
+
 	return new Promise((resolve, eject) => {
 		instance
 			.post(`/api/Product`, product)
@@ -44,4 +47,22 @@ export const registerProduct = async (product) => {
 				resolve(error.response);
 			});
 	});
+};
+
+export const updateProduct = async (id, product) => {
+	console.log(product)
+	if (product.file) {
+		const urlImage = await uploadImage(product.file);
+		product.image = urlImage;
+	}
+	return new Promise( (resolve,eject) => {
+
+        HttpClient.put(`/api/Product/${id}`, product)
+        .then(response => {
+            resolve(response);
+        })
+        .catch(error => {
+            resolve(error.response);
+        })
+    });
 };

@@ -17,6 +17,9 @@ import { registerProduct } from "../../../actions/ProductActions";
 import { v4 as uuidv4 } from "uuid";
 
 const AddProduct = () => {
+	const imageNotFound =
+		"https://firebasestorage.googleapis.com/v0/b/netmarketfbase.appspot.com/o/images%2Fimage-not-found.png?alt=media&token=f87fb342-112b-41e8-87d9-d8f4f5fae783";
+
 	const [product, setProduct] = React.useState({
 		id: 0,
 		name: "",
@@ -29,6 +32,7 @@ const AddProduct = () => {
 		price: 0,
 		image: "",
 		file: "",
+		tempImg: null,
 	});
 	const [categoryId, setCategory] = React.useState("");
 	const [brandId, setBrand] = React.useState("");
@@ -54,8 +58,14 @@ const AddProduct = () => {
 	};
 
 	const upImage = (images) => {
-		const image = images[0];
-		setProduct((prev) => ({ ...prev, file: image }));
+		let photo = images[0];
+		let photoUrl = "";
+		try {
+			photoUrl = URL.createObjectURL(photo);
+		} catch (error) {
+			photoUrl = imageNotFound;
+		}
+		setProduct((prev) => ({ ...prev, file: photo, tempImg: photoUrl }));
 	};
 
 	const classes = useStyles();
@@ -78,7 +88,7 @@ const AddProduct = () => {
 							label="Product Name"
 							variant="outlined"
 							fullWidth
-              name="name"
+							name="name"
 							className={classes.gridmb}
 							style={{ marginTop: 5, marginBottom: 20 }}
 							InputLabelProps={{ shrink: true }}
@@ -89,7 +99,7 @@ const AddProduct = () => {
 							label="Price"
 							variant="outlined"
 							fullWidth
-              name="price"
+							name="price"
 							className={classes.gridmb}
 							style={{ marginTop: 5, marginBottom: 20 }}
 							InputLabelProps={{ shrink: true }}
@@ -100,7 +110,7 @@ const AddProduct = () => {
 							label="Stock"
 							variant="outlined"
 							fullWidth
-              name="stock"
+							name="stock"
 							className={classes.gridmb}
 							style={{ marginTop: 5, marginBottom: 20 }}
 							InputLabelProps={{ shrink: true }}
@@ -111,7 +121,7 @@ const AddProduct = () => {
 							label="Description"
 							variant="outlined"
 							fullWidth
-              name="description"
+							name="description"
 							className={classes.gridmb}
 							style={{ marginTop: 5, marginBottom: 20 }}
 							InputLabelProps={{ shrink: true }}
@@ -175,6 +185,13 @@ const AddProduct = () => {
 										backgroundColor: "#F2F2F2",
 									}}
 									className={classes.productAvatar}
+									src={
+										product.tempImg
+											? product.tempImg
+											: product.image
+											? product.image
+											: imageNotFound
+									}
 								/>
 							</Grid>
 						</Grid>

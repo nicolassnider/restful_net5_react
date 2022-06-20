@@ -41,7 +41,7 @@ const ProductDetail = (props) => {
 			setSelectedProduct(response.data);
 		};
 		getProductAsync();
-	}, [selectedProduct]);
+	}, []);
 
 	const addToShoppingCart = async () => {
 		const item = {
