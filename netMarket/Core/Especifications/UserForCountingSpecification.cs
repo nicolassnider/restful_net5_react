@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Especifications
 {
-    internal class UserForCountingSpecification : BaseSpecification<User>
+    public class UserForCountingSpecification : BaseSpecification<User>
     {
         public UserForCountingSpecification(UserSpecificationParams userParams)
             : base(x =>

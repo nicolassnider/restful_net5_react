@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using Core.Entities;
+using Core.Especifications;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -20,14 +23,16 @@ namespace WebApi.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<User> _passwordHasher;
+        private readonly IGenericSecurityRepository<User> _securityRepository;
 
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, IMapper mapper, IPasswordHasher<User> passwordHasher)
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, IMapper mapper, IPasswordHasher<User> passwordHasher, IGenericSecurityRepository<User> securityRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenService = tokenService;
             _mapper = mapper;
             _passwordHasher = passwordHasher;
+            _securityRepository = securityRepository;
         }
 
         [HttpPost("login")]
@@ -116,7 +121,7 @@ namespace WebApi.Controllers
         [HttpPut("update/{id}")]
         public async Task<ActionResult<UserDto>> Update(string id, RegisterDto registerDto)
         {
-            var user = await _userManager.FindByEmailAsync(id);
+            var user = await _userManager.FindByEmailAsync(registerDto.Email);
             if (user == null)
             {
                 return NotFound(new CodeErrorResponse(404, "User not found"));
@@ -142,6 +147,26 @@ namespace WebApi.Controllers
 
             };
             
+        }
+        [HttpGet("pagination")]
+        public async Task<ActionResult<Pagination<UserDto>>> GetUsers([FromQuery]UserSpecificationParams userParams)
+        {
+            var spec = new UserSpecification(userParams);
+            var users =await _securityRepository.GetAllWithSpec(spec);
+            var specCount = new UserForCountingSpecification(userParams);
+            var usersTotal = await _securityRepository.CountAsync(spec);
+            var rounded = Math.Ceiling(Convert.ToDecimal(usersTotal) / userParams.PageSize);
+            var totalPages = Convert.ToInt32(rounded);
+
+            var data = _mapper.Map<IReadOnlyList<User>, IReadOnlyList<UserDto>>(users);
+            return Ok(new Pagination<UserDto>
+            {
+                Count = usersTotal,
+                Data = data,
+                PageCount=totalPages,
+                PageIndex=userParams.PageIndex,
+                PageSize=userParams.PageSize
+            });
         }
     }
 

@@ -54,6 +54,7 @@ namespace WebApi
             });
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IGenericSecurityRepository<>), typeof(GenericSecurityRepository<>));
             services.AddDbContext<MarketDbContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
