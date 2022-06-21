@@ -7,3 +7,5 @@ docker exec -it netmarketredis sh
 redis-cli
 set name Admin
 get name
+
+dotnet watch run

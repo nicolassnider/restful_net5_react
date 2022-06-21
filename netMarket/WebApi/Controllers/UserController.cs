@@ -19,13 +19,15 @@ namespace WebApi.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
+        private readonly IPasswordHasher<User> _passwordHasher;
 
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, IMapper mapper)
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, IMapper mapper, IPasswordHasher<User> passwordHasher)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenService = tokenService;
             _mapper = mapper;
+            _passwordHasher = passwordHasher;
         }
 
         [HttpPost("login")]
@@ -109,6 +111,37 @@ namespace WebApi.Controllers
             var user = await _userManager.FindByEmailAsync(email);*/
             var user = await _userManager.SearchUserWithAddressAsync(HttpContext.User);
             return _mapper.Map<Address, AddressDto>(user.Address);
+        }
+
+        [HttpPut("update/{id}")]
+        public async Task<ActionResult<UserDto>> Update(string id, RegisterDto registerDto)
+        {
+            var user = await _userManager.FindByEmailAsync(id);
+            if (user == null)
+            {
+                return NotFound(new CodeErrorResponse(404, "User not found"));
+            }
+            user.FirstName = registerDto.FirstName;
+            user.LastName = registerDto.LastName;
+            user.PasswordHash=_passwordHasher.HashPassword(user, registerDto.Password);
+
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                return BadRequest(new CodeErrorResponse(400, "Could not update user"));
+            }
+
+            return new UserDto
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                UserName = user.UserName,
+                Token = _tokenService.CreateToken(user),
+                Image = user.Image,
+
+            };
+            
         }
     }
 

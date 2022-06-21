@@ -76,11 +76,10 @@ const EditProduct = (props) => {
 	}, []);
 
 	const saveProduct = async () => {
+		console.log(props.match.params.id);
 		product.categoryId = category;
 		product.brandId = brand;
-		const result = await updateProduct(props.match.params.id, product);
-		console.log(result);
-		props.history.push("/admin/products");
+		const result = await updateProduct(props.match.params.id, product);		
 	};
 
 	const keyImage = uuidv4();
@@ -151,7 +150,7 @@ const EditProduct = (props) => {
 							<Select
 								labelId="brand-select-id"
 								id="brand-select"
-								value={brand}
+								value={brand||''}
 								onChange={handleBrandChange}
 							>
 								<MenuItem value={1}>brand 1</MenuItem>
@@ -167,7 +166,7 @@ const EditProduct = (props) => {
 							<Select
 								labelId="category-select-id"
 								id="category-select"
-								value={category}
+								value={category||''}
 								onChange={handleCategoryChange}
 							>
 								<MenuItem value={1}>category 1</MenuItem>

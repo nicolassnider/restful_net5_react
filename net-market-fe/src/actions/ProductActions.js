@@ -50,19 +50,18 @@ export const registerProduct = async (product) => {
 };
 
 export const updateProduct = async (id, product) => {
-	console.log(product)
 	if (product.file) {
 		const urlImage = await uploadImage(product.file);
 		product.image = urlImage;
 	}
-	return new Promise( (resolve,eject) => {
-
-        HttpClient.put(`/api/Product/${id}`, product)
-        .then(response => {
-            resolve(response);
-        })
-        .catch(error => {
-            resolve(error.response);
-        })
-    });
+	return new Promise((resolve, eject) => {
+		instance
+			.put(`/api/Product/${id}`, product)
+			.then((response) => {
+				resolve(response);
+			})
+			.catch((error) => {
+				resolve(error.response);
+			});
+	});
 };

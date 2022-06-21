@@ -12,6 +12,7 @@ namespace Core.Entities
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public Address Address { get; set; }
+        public string Image { get; set; }
 
     }
 }
