@@ -28,12 +28,14 @@ namespace WebApi
                 {
                     var context = services.GetRequiredService<MarketDbContext>();
                     await context.Database.MigrateAsync();
-                    await MarketDbContextData.LoadDataAsync(context,loggerFactory);
+                    await MarketDbContextData.LoadDataAsync(context, loggerFactory);
+
                     var userManager = services.GetRequiredService<UserManager<User>>();
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var identityContext = services.GetRequiredService<SecurityDbContext>();
                     await identityContext.Database.MigrateAsync();
-                    await SecurityDbContextData.SeedUserAsync(userManager);
-                     
+                    await SecurityDbContextData.SeedUserAsync(userManager, roleManager);
+
                 }
                 catch (Exception e)
                 {

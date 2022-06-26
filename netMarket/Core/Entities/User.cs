@@ -13,6 +13,5 @@ namespace Core.Entities
         public string FirstName { get; set; }
         public Address Address { get; set; }
         public string Image { get; set; }
-
     }
 }
