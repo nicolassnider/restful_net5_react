@@ -43,12 +43,12 @@ namespace WebApi.Controllers
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
             if (user == null)
             {
-                return Unauthorized(new CodeErrorResponse(401));
+                return Unauthorized(new CodeErrorResponse(401,"Inexistent user"));
             }
             var result= await _signInManager.CheckPasswordSignInAsync(user,loginDto.Password,false);
             if (!result.Succeeded)
             {
-                return Unauthorized(new CodeErrorResponse(401));
+                return Unauthorized(new CodeErrorResponse(401,"Invalid credentials"));
             }
             var roles = await _userManager.GetRolesAsync(user);
             return new UserDto

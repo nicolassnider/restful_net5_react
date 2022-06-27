@@ -21,9 +21,10 @@ import { getUser } from "./actions/UserActions";
 import { useStateValue } from "./context/store";
 import { getShoppingCart } from "./actions/ShoppingCartActions";
 import { v4 as uuidv4 } from "uuid";
+import { Snackbar } from "@mui/material";
 
 function App() {
-	const [{ userSession }, dispatch] = useStateValue();
+	const [{ userSession, openSnackbar }, dispatch] = useStateValue();
 	const [serverResponse, setServerResponse] = useState(false);
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,6 +44,26 @@ function App() {
 	}, [serverResponse]);
 	return (
 		<ThemeProvider theme={theme}>
+			<Snackbar
+				anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+				open={openSnackbar ? openSnackbar.open : false}
+				autoHideDuration={3000}
+				ContentProps={{ "aria-describedby": "message-id" }}
+				message={
+					<span id="message-id">
+						{openSnackbar ? openSnackbar.message : ""}
+					</span>
+				}
+				onClose={() =>
+					dispatch({
+						type: "OPEN_SNACKBAR",
+						openMessage: {
+							open: false,
+							message: "",
+						},
+					})
+				}
+			></Snackbar>
 			<Router>
 				<MenuAppBar />
 				<Switch>
