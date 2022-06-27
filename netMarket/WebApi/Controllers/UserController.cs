@@ -103,7 +103,7 @@ namespace WebApi.Controllers
             user.FirstName = registerDto.FirstName;
             user.LastName = registerDto.LastName;
             user.Image = registerDto.Image;
-            if (string.IsNullOrEmpty(registerDto.Password))
+            if (!string.IsNullOrEmpty(registerDto.Password))
             {
                 user.PasswordHash = _passwordHasher.HashPassword(user, registerDto.Password);
             }
