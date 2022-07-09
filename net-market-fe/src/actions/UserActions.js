@@ -6,6 +6,44 @@ const instance = axios.create();
 instance.CancelToken = axios.CancelToken;
 instance.isCancel = axios.isCancel;
 
+export const getUserById = async (id) => {
+	return new Promise((resolve, eject) => {
+		HttpClient.get(`api/User/account/${id}`)
+			.then((response) => {
+				resolve(response);
+			})
+			.catch((error) => {
+				resolve(error.response);
+			});
+	});
+};
+
+export const setRole = (id, role, dispatch) => {
+	return new Promise((resolve, eject) => {
+		HttpClient.put(`api/User/role/${id}`, role)
+			.then((response) => {
+				resolve(response);
+			})
+			.catch((error) => {
+				resolve(error.response);
+			});
+	});
+};
+
+export const getUsers = (request) => {
+	return new Promise((resolve, eject) => {
+		HttpClient.get(
+			`api/User/pagination?pageIndex=${request.pageIndex}&pageSize=${request.pageSize}&search=${request.search}`
+		)
+			.then((response) => {
+				resolve(response);
+			})
+			.catch((error) => {
+				resolve(error.response);
+			});
+	});
+};
+
 export const updateUser = async (id, user, dispatch) => {
 	if (user.file) {
 		const urlImage = await uploadImage(user.file);
