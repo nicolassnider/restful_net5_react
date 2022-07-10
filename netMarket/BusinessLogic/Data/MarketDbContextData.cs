@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.PurchaseOrder;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,18 @@ namespace BusinessLogic.Data
                     foreach (var product in products)
                     {
                         context.Product.Add(product);
+                    }
+                    await context.SaveChangesAsync();
+
+                }
+                if (!context.ShippingTypes.Any())
+                {
+                    var shippingTypeData = File.ReadAllText("../BusinessLogic/LoadData/shippingTypes.json");
+                    var shippingTypes = JsonSerializer.Deserialize<List<ShippingType>>(shippingTypeData);
+
+                    foreach (var shippingType in shippingTypes)
+                    {
+                        context.ShippingTypes.Add(shippingType);
                     }
                     await context.SaveChangesAsync();
 

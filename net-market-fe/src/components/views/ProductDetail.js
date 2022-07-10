@@ -17,6 +17,10 @@ import { getProduct } from "../../actions/ProductActions";
 import useStyles from "../../theme/useStyles";
 import { useStateValue } from "../../context/store";
 import { addItemToShoppingCart } from "../../actions/ShoppingCartActions";
+
+const imageNotFound =
+		"https://firebasestorage.googleapis.com/v0/b/netmarketfbase.appspot.com/o/images%2Fimage-not-found.png?alt=media&token=f87fb342-112b-41e8-87d9-d8f4f5fae783";
+
 const ProductDetail = (props) => {
 	const [{ shoppingCartSession }, dispatch] = useStateValue();
 	const [quantity, setQuantity] = useState(1);
@@ -74,7 +78,7 @@ const ProductDetail = (props) => {
 					<Paper className={classes.paperImg} variant="outlined" square>
 						<CardMedia
 							className={classes.mediaDetail}
-							image={selectedProduct.image}
+							image={selectedProduct.image? selectedProduct.image : imageNotFound}
 							title={selectedProduct.description}
 						/>
 					</Paper>

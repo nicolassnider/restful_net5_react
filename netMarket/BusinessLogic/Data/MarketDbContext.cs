@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.PurchaseOrder;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace BusinessLogic.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Brand> Brand { get; set; }
+        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShippingType> ShippingTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -15,5 +15,6 @@ namespace Core.Entities
         public string UserId { get; set; }
         public string Apartment { get; set; }
         public User User { get; set; }
+        public string Country { get; set; }
     }
 }

@@ -1,0 +1,22 @@
+[
+	{
+		"Nombre":   	"FastShipping",
+		"Descripcion": 	"The fastest shipping",
+		"Precio": 	15
+	},
+	{
+		"Nombre":   	"RegularShipping",
+		"Descripcion": 	"Regular shipping service in 5 days",
+		"Precio": 	10
+	},
+	{
+		"Nombre":   	"CheapShipping",
+		"Descripcion": 	"Cheap shipping service",
+		"Precio": 	5
+	},
+	{
+		"Nombre":   	"FreeShipping",
+		"Descripcion": 	"Free Shipping Service",
+		"Precio": 	0
+	}
+]
